@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/resto"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_store_24"
+        android:title="Resto"/>
+    <item
+        android:id="@+id/pick"
+        android:enabled="true"
+        android:icon="@drawable/qr_code"
+        android:title="Pick"/>
+    <item
+        android:id="@+id/dompet"
+        android:enabled="true"
+        android:icon="@drawable/cscs"
+        android:title="Dompet Q"/>
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_outline_account_circle_24"
+        android:title="Profile"/>
+</menu>

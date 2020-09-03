@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Pick My Food</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Sign In</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="SignUp_here">Dont have an account? Sign up here</string>
+    <string name="SignIn_here">Have an account? Sign in here</string>
+    <string name="trending">Trending Of The Week</string>
+    <string name="see_all">See All</string>
+    <string name="foodNameTranding">Food Name Tranding</string>
+    <string name="search">Cari Resto, Makanan, Minuman......</string>
 </resources>
