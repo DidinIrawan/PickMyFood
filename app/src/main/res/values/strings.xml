@@ -10,4 +10,6 @@
     <string name="see_all">See All</string>
     <string name="foodNameTranding">Food Name Tranding</string>
     <string name="search">Cari Resto, Makanan, Minuman......</string>
+    <string name="ket_saldo">Saldo Dompet Q</string>
+    <string name="saldo">IDR 7.000.000</string>
 </resources>

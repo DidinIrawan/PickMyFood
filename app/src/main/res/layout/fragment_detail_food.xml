@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jumlah: "
+                android:text="Jumlah:       "
                 android:textColor="#000000" />
 
             <com.google.android.material.button.MaterialButton
