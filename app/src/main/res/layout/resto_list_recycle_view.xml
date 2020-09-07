@@ -13,7 +13,9 @@
         android:layout_marginVertical="5dp"
         android:clickable="true"
         app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp">
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,8 +35,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:foreground="@drawable/ic_baseline_image_25"
                     android:scaleType="fitXY" />
+                <!--                    android:foreground="@drawable/ic_baseline_image_25"-->
+
 
                 <TextView
                     android:id="@+id/foodName"
@@ -53,14 +56,6 @@
                     android:textColor="#090909"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/hargaFood"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Harga"
-                    android:textColor="#090909"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
             </LinearLayout>
 
 

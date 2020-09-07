@@ -1,12 +1,13 @@
-package com.project.pickmyfood
+package com.project.pickmyfood.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.project.pickmyfood.R
 
-class WalletActivity : AppCompatActivity() {
+class RestoMenuListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wallet)
+        setContentView(R.layout.activity_resto_menu_list)
         try {
             this.supportActionBar!!.hide()
         } catch (e: NullPointerException) {
