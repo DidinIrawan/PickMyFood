@@ -5,29 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.project.pickmyfood.R
+import com.project.pickmyfood.container.MyApplication
+import com.project.pickmyfood.data.user.model.UserRegisterAuth
+import com.project.pickmyfood.data.user.model.UserRegisterModel
+import com.project.pickmyfood.data.user.viewmodel.UserRegisterViewModel
+import kotlinx.android.synthetic.main.fragment_sign_up.*
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SignUpFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SignUpFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SignUpFragment : Fragment(), View.OnClickListener {
+
+    @Inject lateinit var  userRegisterViewModel: UserRegisterViewModel
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -38,23 +35,59 @@ class SignUpFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_sign_up, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SignUpFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SignUpFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navController =Navigation.findNavController(view)
+        userRegisterToLoginText.setOnClickListener(this)
+        userRegisterButton.setOnClickListener(this)
+        userRegisterViewModel.userRegisterResponse.observe(viewLifecycleOwner,
+        androidx.lifecycle.Observer {
+            if (it.statusCode == 400.toString()){
+                Toast.makeText(
+                    this.context,"Username or name already registered", Toast.LENGTH_SHORT
+                ).show()
+            }else{
+                Toast.makeText(this.context, "Create Account is success",Toast.LENGTH_SHORT).show()
+                navController.navigate(R.id.action_to_loginFragment)
+            }
+        })
+    }
+
+    override fun onClick(v: View?) {
+        when(v){
+            userRegisterToLoginText -> {
+                navController.navigate(R.id.action_to_loginFragment)
+            }
+            userRegisterButton ->{
+//                val userRegisterAuth = UserRegisterAuth(
+//                    username = usernameInput.text.toString(),
+//                    password = passwordInputText.text.toString()
+//                )
+                val userRegisterModel = UserRegisterModel(
+                    userFirstName = firstNameInputText.text.toString(),
+                    userLastName = lastNameInputText.text.toString(),
+                    userPhone = userPhoneInputText.text.toString(),
+                    auth = UserRegisterAuth(
+                        username = usernameInput.text.toString(),
+                        password = passwordInputText.text.toString()
+                    )
+                )
+
+                if (firstNameInputText.text.toString()=="" ||
+                    lastNameInputText.text.toString()=="" ||
+                    userPhoneInputText.text.toString()=="" ||
+                    usernameInput.text.toString()=="" ||
+                    passwordInputText.text.toString()=="" ||
+                    passwordConfirmInput.text.toString()==""
+                ){
+                    Toast.makeText(this.context,"Fill out all forms",Toast.LENGTH_SHORT).show()
+                }else if (passwordInputText.text.toString() != passwordConfirmInput.text.toString()){
+                    Toast.makeText(this.context,"Incorrect confirmation password", Toast.LENGTH_SHORT).show()
+                }else{
+                    userRegisterViewModel.registerNewUser(userRegisterModel)
+                    println(userRegisterModel.auth.username.toString())
                 }
             }
+        }
     }
 }

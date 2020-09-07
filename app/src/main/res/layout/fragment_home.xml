@@ -48,6 +48,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/menuHomeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -114,6 +115,7 @@
                 android:layout_weight="1" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/tukarPoinButton"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginRight="5dp"
@@ -231,7 +233,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -259,10 +260,23 @@
                 android:text="@string/foodNameTranding"
                 android:textColor="#000000"
                 android:textSize="15sp" />
+
+<!--            <RatingBar-->
+<!--                android:id="@+id/rb_ratingBar"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:isIndicator="false"-->
+<!--                android:numStars="5"-->
+<!--                android:progressBackgroundTint="#000000"-->
+<!--                android:progressTint="@color/colorCustomYellow"-->
+<!--                android:rating="4"-->
+<!--                android:stepSize="0.5" />-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
 
                 <ImageView
                     android:id="@+id/rating"

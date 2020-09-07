@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            app:srcCompat="@drawable/logo_1logo" />
+            app:srcCompat="@drawable/logo_1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                         app:hintTextColor="#000000">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/emailInput"
+                            android:id="@+id/usernameInput"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@android:color/transparent"
@@ -92,7 +92,7 @@
                         app:hintTextColor="#000000">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/passwordInput"
+                            android:id="@+id/userPasswordInput"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@android:color/transparent"
@@ -103,7 +103,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/submitUser"
+                        android:id="@+id/userLoginButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -121,6 +121,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/userLoginToRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

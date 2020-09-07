@@ -11,5 +11,19 @@
     <string name="foodNameTranding">Food Name Tranding</string>
     <string name="search">Cari Resto, Makanan, Minuman......</string>
     <string name="ket_saldo">Saldo Dompet Q</string>
-    <string name="saldo">IDR 7.000.000</string>
+    <string name="saldo">IDN 7.000.000</string>
+    <string name="id_key">ID</string>
+    <string name="user_firstName">USER_FIRST_NAME</string>
+    <string name="user_lastName">USER_LAST_NAME</string>
+    <string name="user_address">USER_ADDRESS</string>
+    <string name="user_phone">USER_PHONE</string>
+    <string name="user_poin">USER_POIN</string>
+    <string name="user_image">USER_IMAGE</string>
+    <string name="username_key">USERNAME</string>
+
+    <string name="default_value">DEFAULT</string>
+
+    <string name="login_method_key">LOGIN_METHOD</string>
+    <string name="authority_key">com.project.pickmyfood.fileprovider</string>
+    <string name="shared_preference_name">com.project.shared.preference</string>
 </resources>

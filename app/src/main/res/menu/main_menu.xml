@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/homeMenu"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home" />
     <item
-        android:id="@+id/resto"
+        android:id="@+id/restoMenu"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_store_24"
         android:title="Resto"/>
     <item
-        android:id="@+id/pick"
+        android:id="@+id/pickMenu"
         android:enabled="true"
         android:icon="@drawable/qr_code"
         android:title="Pick"/>
     <item
-        android:id="@+id/dompet"
+        android:id="@+id/dompetMenu"
         android:enabled="true"
         android:icon="@drawable/cscs"
         android:title="Dompet Q"/>
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileMenu"
         android:enabled="true"
         android:icon="@drawable/ic_outline_account_circle_24"
         android:title="Profile"/>
