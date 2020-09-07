@@ -36,12 +36,12 @@
     </fragment>
     <activity
         android:id="@+id/restoMenuListActivity2"
-        android:name="com.project.pickmyfood.RestoMenuListActivity"
+        android:name="com.project.pickmyfood.activity.RestoMenuListActivity"
         android:label="activity_resto_menu_list"
         tools:layout="@layout/activity_resto_menu_list" />
     <activity
         android:id="@+id/walletActivity"
-        android:name="com.project.pickmyfood.WalletActivity"
+        android:name="com.project.pickmyfood.activity.WalletActivity"
         android:label="activity_wallet"
         tools:layout="@layout/activity_wallet" />
     <fragment

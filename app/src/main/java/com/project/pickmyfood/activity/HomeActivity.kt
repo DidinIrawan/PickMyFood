@@ -1,50 +1,47 @@
 package com.project.pickmyfood.activity
 
-import android.os.Bundle
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.project.pickmyfood.R
-import com.project.pickmyfood.screens.home.HomeFragment
-import com.project.pickmyfood.screens.list.RestoListFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
-    private var content: FrameLayout? = null
-    private val mOnNavigationItemSelectedListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.bottom_nav_home -> {
-                    val fragment = HomeFragment.newInstance()
-                    addFragment(fragment)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.bottom_nav_resto -> {
-                    val fragment = RestoListFragment()
-                    addFragment(fragment)
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
-
-    private fun addFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .setCustomAnimations(
-                R.anim.design_bottom_sheet_slide_in,
-                R.anim.design_bottom_sheet_slide_out
-            )
-            .replace(R.id.nav_home_host_fragment_container, fragment, fragment.javaClass.simpleName)
-            .commit()
-    }
-
+    lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        bottom_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        val fragment = HomeFragment.newInstance()
-        addFragment(fragment)
+        try {
+            this.supportActionBar!!.hide()
+        } catch (e: NullPointerException) {
+        }
+
+        navController = (nav_home_host_fragment_container as NavHostFragment).navController
+        NavigationUI.setupWithNavController(bottomHomeNavigation, navController)
+        bottomHomeNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId){
+                R.id.homeMenu -> {
+                    navController.navigate(R.id.action_global_to_homeFragment)
+                    true
+                }
+                R.id.restoMenu -> {
+                    navController.navigate(R.id.action_global_to_restoListFragment)
+                    true
+                }
+                R.id.dompetMenu -> {
+                    navController.navigate(R.id.action_global_to_walletFragment)
+                    true
+                }
+                R.id.profileMenu -> {
+                    navController.navigate(R.id.action_global_to_userProfileFragment)
+                    true
+                }
+                else -> {
+                    true
+                }
+            }
+        }
     }
 }
