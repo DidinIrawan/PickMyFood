@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_sign_up" />
     <activity
         android:id="@+id/homeActivity"
-        android:name="com.project.pickmyfood.HomeActivity"
+        android:name="com.project.pickmyfood.activity.HomeActivity"
         android:label="activity_home"
         tools:layout="@layout/activity_home" />
 </navigation>

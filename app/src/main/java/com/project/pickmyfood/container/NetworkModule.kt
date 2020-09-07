@@ -16,4 +16,5 @@ class NetworkModule {
     fun provideUserRegisterAPI(): UserRegisterAPI {
         return RetrofitBuilder.createRetrofit().create(UserRegisterAPI::class.java)
     }
+
 }

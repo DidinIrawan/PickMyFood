@@ -1,7 +1,8 @@
-package com.project.pickmyfood
+package com.project.pickmyfood.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.project.pickmyfood.R
 
 class WalletActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
