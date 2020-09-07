@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wallet_navigation"
+    app:startDestination="@id/topUpFragment">
+
+    <fragment
+        android:id="@+id/topUpFragment"
+        android:name="com.project.pickmyfood.screens.wallet.TopUpFragment"
+        android:label="fragment_top_up"
+        tools:layout="@layout/fragment_top_up" />
+</navigation>
