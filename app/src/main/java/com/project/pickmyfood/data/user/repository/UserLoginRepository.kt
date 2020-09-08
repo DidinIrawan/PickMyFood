@@ -31,6 +31,7 @@ class UserLoginRepository  @Inject constructor(val userLoginAPI: UserLoginAPI) {
                     Gson().fromJson<UserLoginResponseDataModel>(stringResponseData,UserLoginResponseDataModel::class.java)
                 userLoginResponse.value = userLoginResponseObject
                 userLoginResponseData.value = userLoginResponseDataObject
+
             }
         })
     }

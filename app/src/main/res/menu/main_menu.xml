@@ -18,7 +18,7 @@
     <item
         android:id="@+id/dompetMenu"
         android:enabled="true"
-        android:icon="@drawable/cscs"
+        android:icon="@drawable/ic_baseline_account_balance_wallet_24"
         android:title="Dompet Q"/>
     <item
         android:id="@+id/profileMenu"

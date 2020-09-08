@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.project.pickmyfood.R
-import com.project.pickmyfood.container.AppPickMyFood
+import com.project.pickmyfood.container.MyApplication
 import com.project.pickmyfood.data.store.StoreViewModel
 import com.project.pickmyfood.data.store.adapter.StoreRecycleAdapter
 import kotlinx.android.synthetic.main.fragment_resto_list.*
@@ -21,7 +21,7 @@ class RestoListFragment : Fragment() {
     lateinit var adapter: StoreRecycleAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity?.applicationContext as AppPickMyFood).applicationComponent.inject(this)
+        (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
     }
 
     override fun onCreateView(

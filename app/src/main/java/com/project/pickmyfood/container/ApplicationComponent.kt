@@ -6,7 +6,7 @@ import com.project.pickmyfood.screens.login.LoginFragment
 import com.project.pickmyfood.screens.signup.SignUpFragment
 import dagger.Component
 
-@Component(modules = [NetworkModule::class])
+@Component(modules = [NetworkModul::class])
 interface ApplicationComponent {
     fun inject(userLoginFragment: LoginFragment)
     fun inject(signUpFragment: SignUpFragment)

@@ -8,6 +8,7 @@ class UserLoginModel(
 class UserLoginResponseDataModel(
     var id: String = "default",
     var username: String = "default",
+    var userFirstName:String ="default",
     var userLastName: String = "default",
     var userAddress: String = "default",
     var userPhone: String = "default",

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.project.pickmyfood.R
-import com.project.pickmyfood.container.AppPickMyFood
+import com.project.pickmyfood.container.MyApplication
 
 class MainActivity : AppCompatActivity() {
     val REQUEST_READ_STORAGE_PERMISSION = 201
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        (applicationContext as AppPickMyFood).applicationComponent.inject(this)
+        (applicationContext as MyApplication).applicationComponent.inject(this)
         try {
             this.supportActionBar!!.hide()
         } catch (e: NullPointerException) {
