@@ -14,7 +14,8 @@ class UserRegisterAuth(
     var username: String = "default",
     var password: String = "default"
 ){}
-
+//anggas25@live.com ayomabargees123
+//clever-cloud.com
 //fun main(){
 //    var user = UserRegisterModel("guss", "gusaja", "Mojo", "081245553",
 //        "image.jpg","saya gus",userRegisterAuth = UserRegisterAuth("asasa","asasas")

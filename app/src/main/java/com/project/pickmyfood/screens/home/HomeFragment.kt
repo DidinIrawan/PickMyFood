@@ -40,21 +40,22 @@ class HomeFragment : Fragment(),View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         tukarPoinButton.setOnClickListener(this)
 
-        val username = sharedPreferences?.getString(
-            getString(R.string.username_key),
+        val userFirstName = sharedPreferences?.getString(
+            getString(R.string.user_firstName),
             getString(R.string.default_value)
         )
-        menuHomeText.text = "Hi, $username"
+        menuHomeText.text = "Hi, $userFirstName"
     }
 
     override fun onClick(v: View?) {
         when(v){
             tukarPoinButton -> {
                 with(sharedPreferences?.edit()){
-                    this?.remove(getString(R.string.username_key))
+                    this?.remove(getString(R.string.user_firstName))
                     this?.commit()
+                    v?.findNavController()?.navigate(R.id.action_homeFragment_to_mainActivity)
                 }
-                v?.findNavController()?.navigate(R.id.action_to_loginFragment)
+
             }
         }
     }

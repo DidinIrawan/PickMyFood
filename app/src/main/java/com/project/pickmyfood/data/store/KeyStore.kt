@@ -1,7 +1,7 @@
 package com.project.pickmyfood.data.store
 
 class KeyStore(
-    var storeId: String = "",
+    var storeID: String = "",
     var storeName: String = "",
 //    var store_category_id :String ="",
     var storeAddress: String = "",

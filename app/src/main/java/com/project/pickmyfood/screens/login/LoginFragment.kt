@@ -47,7 +47,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (sharedPreferences?.contains(getString(R.string.username_key))!! && sharedPreferences?.contains(
+        if (sharedPreferences?.contains(getString(R.string.user_firstName))!! && sharedPreferences?.contains(
                 getString(R.string.login_method_key)
             )!!
         ) {
@@ -59,8 +59,9 @@ class LoginFragment : Fragment(), View.OnClickListener {
         userLoginButton.setOnClickListener(this)
 
         userLoginViewModel.userLoginResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            if (it.statusCode == 400.toString()){
+            if (it.statusCode == 401.toString()){
                 Toast.makeText(this.context,"Username or password is wrong", Toast.LENGTH_SHORT).show()
+                navController.navigate(R.id.action_global_to_loginFragment)
             }else{
                 Toast.makeText(this.context, "Login Success", Toast.LENGTH_SHORT).show()
 
@@ -69,11 +70,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         with(sharedPreferences?.edit()){
                             this?.putString(
                                 getString(R.string.id_key),
-                                it.id
-                            )
-                            this?.putString(
-                                getString(R.string.username_key),
-                                it.username
+                                it.userID
                             )
                             this?.putString(
                                 getString(R.string.user_firstName),

@@ -6,12 +6,12 @@ class UserLoginModel(
 ) {}
 
 class UserLoginResponseDataModel(
-    var id: String = "default",
-    var username: String = "default",
+    var userID: String = "default",
     var userFirstName:String ="default",
     var userLastName: String = "default",
     var userAddress: String = "default",
     var userPhone: String = "default",
     var userPoin: String = "default",
+    var userEmail: String = "default",
     var userImage: String = "defaultUserPhoto.jpeg"
 ) {}

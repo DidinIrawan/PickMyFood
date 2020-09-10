@@ -6,7 +6,7 @@
     android:background="#FFFFFF">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/movieClick"
+        android:id="@+id/restoListCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
@@ -59,7 +59,14 @@
                     android:text="Jalan Kesehatan Raya No. 06, Jl. Bintaro Selatan......"
                     android:textColor="#090909"
                     android:textSize="12sp" />
-
+                <TextView
+                    android:id="@+id/idFood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="id"
+                    android:textColor="#090909"
+                    android:textSize="12sp" />
             </LinearLayout>
 
 

@@ -23,6 +23,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
+            android:id="@+id/imageFoodDetail"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -32,6 +33,7 @@
             app:srcCompat="@drawable/rectangle_22" />
 
         <TextView
+            android:id="@+id/nameFoodText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -89,6 +91,7 @@
                 android:textColor="#000000" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonMinus"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF5722"
@@ -98,12 +101,13 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/quantityFood"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#090909" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/quantity"
+                android:id="@+id/buttonPlus"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF5722"

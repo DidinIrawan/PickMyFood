@@ -20,25 +20,29 @@
         android:id="@+id/action_global_to_userProfileFragment"
         app:destination="@+id/userProfileFragment"/>
     <action
-        android:id="@+id/action_restoListFragment_to_restoMenuListActivity2"
-        app:destination="@id/restoMenuListActivity2" />
+        android:id="@+id/action_homeFragment_to_mainActivity"
+        app:destination="@id/mainActivity" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.project.pickmyfood.screens.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+    <action
+        android:id="@+id/action_restoListFragment_to_foodMenuListFragment"
+        app:destination="@id/foodMenuListFragment" />
+    <action
+        android:id="@+id/action_global_to_detailFoodFragment"
+        app:destination="@id/detailFoodFragment" />
     <fragment
         android:id="@+id/restoListFragment"
         android:name="com.project.pickmyfood.screens.list.RestoListFragment"
         android:label="fragment_resto_list"
         tools:layout="@layout/fragment_resto_list" >
 
+
     </fragment>
-    <activity
-        android:id="@+id/restoMenuListActivity2"
-        android:name="com.project.pickmyfood.activity.RestoMenuListActivity"
-        android:label="activity_resto_menu_list"
-        tools:layout="@layout/activity_resto_menu_list" />
     <activity
         android:id="@+id/walletActivity"
         android:name="com.project.pickmyfood.activity.WalletActivity"
@@ -49,4 +53,19 @@
         android:name="com.project.pickmyfood.screens.user.UserProfileFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/foodMenuListFragment"
+        android:name="com.project.pickmyfood.screens.list.FoodMenuListFragment"
+        android:label="fragment_food_menu_list"
+        tools:layout="@layout/fragment_food_menu_list" />
+    <fragment
+        android:id="@+id/detailFoodFragment"
+        android:name="com.project.pickmyfood.screens.detailFood.DetailFoodFragment"
+        android:label="fragment_detail_food"
+        tools:layout="@layout/fragment_detail_food" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.project.pickmyfood.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>
