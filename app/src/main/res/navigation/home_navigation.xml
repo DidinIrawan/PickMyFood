@@ -47,6 +47,9 @@
     <action
         android:id="@+id/action_global_to_detailFoodFragment"
         app:destination="@id/detailFoodFragment" />
+    <action
+        android:id="@+id/action_detailFoodFragment_to_cartFragment"
+        app:destination="@id/cartFragment" />
     <fragment
         android:id="@+id/restoListFragment"
         android:name="com.project.pickmyfood.screens.list.RestoListFragment"
@@ -80,7 +83,9 @@
         android:id="@+id/detailFoodFragment"
         android:name="com.project.pickmyfood.screens.detailFood.DetailFoodFragment"
         android:label="fragment_detail_food"
-        tools:layout="@layout/fragment_detail_food" />
+        tools:layout="@layout/fragment_detail_food" >
+
+    </fragment>
 
     <activity
         android:id="@+id/QRcode"
@@ -97,4 +102,9 @@
         android:name="com.project.pickmyfood.screens.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.project.pickmyfood.screens.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

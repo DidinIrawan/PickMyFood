@@ -30,6 +30,7 @@ class ProductRecycledApter(
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
 //        val productImage = productList[position].
+        val productID = productList[position].productID
         val nameProduct = productList[position].productName
         val priceProduct = productList[position].productPrice.price
 //        Picasso.get().load(productImage).into(holder.imageFood)
@@ -42,6 +43,7 @@ class ProductRecycledApter(
         holder.buttonFood.setOnClickListener {
             Navigation.findNavController(it)
                 .navigate(R.id.action_global_to_detailFoodFragment, bundleOf(
+                    "productID" to productID,
                     "nameProduct" to nameProduct,
                     "priceProduct" to priceProduct
                 )
