@@ -18,6 +18,7 @@
     <string name="user_address">USER_ADDRESS</string>
     <string name="user_phone">USER_PHONE</string>
     <string name="user_poin">USER_POIN</string>
+    <string name="user_email">USER_EMAIL</string>
     <string name="user_image">USER_IMAGE</string>
     <string name="username_key">USERNAME</string>
 

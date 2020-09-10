@@ -3,19 +3,15 @@ package com.project.pickmyfood.screens.home
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
 import com.project.pickmyfood.R
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : Fragment(),View.OnClickListener {
+class HomeFragment : Fragment() {
     var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,24 +34,13 @@ class HomeFragment : Fragment(),View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tukarPoinButton.setOnClickListener(this)
 
-        val username = sharedPreferences?.getString(
-            getString(R.string.username_key),
+
+        val userFirstname = sharedPreferences?.getString(
+            getString(R.string.user_firstName),
             getString(R.string.default_value)
         )
-        menuHomeText.text = "Hi, $username"
+        menuHomeText.text = "Hi, $userFirstname"
     }
 
-    override fun onClick(v: View?) {
-        when(v){
-            tukarPoinButton -> {
-                with(sharedPreferences?.edit()){
-                    this?.remove(getString(R.string.username_key))
-                    this?.commit()
-                }
-                v?.findNavController()?.navigate(R.id.action_to_loginFragment)
-            }
-        }
-    }
 }

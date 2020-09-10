@@ -3,11 +3,11 @@ package com.project.pickmyfood.screens.login
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -51,65 +51,71 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 getString(R.string.login_method_key)
             )!!
         ) {
-            view?.findNavController().navigate(R.id.action_loginFragment_to_homeActivity)
+            view.findNavController().navigate(R.id.action_loginFragment_to_homeActivity)
         }
         navController = Navigation.findNavController(view)
 
         userLoginToRegister.setOnClickListener(this)
         userLoginButton.setOnClickListener(this)
 
-        userLoginViewModel.userLoginResponse.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            if (it.statusCode == 400.toString()){
-                Toast.makeText(this.context,"Username or password is wrong", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this.context, "Login Success", Toast.LENGTH_SHORT).show()
+        userLoginViewModel.userLoginResponse.observe(
+            viewLifecycleOwner,
+            androidx.lifecycle.Observer {
+                if (it.statusCode == 400.toString()) {
+                    Toast.makeText(
+                        this.context,
+                        "Username or password is wrong",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(this.context, "Login Success", Toast.LENGTH_SHORT).show()
 
-                userLoginViewModel.userLoginResponseData.observe(viewLifecycleOwner, Observer {
-                    if (it !=null) {
-                        with(sharedPreferences?.edit()){
-                            this?.putString(
-                                getString(R.string.id_key),
-                                it.id
-                            )
-                            this?.putString(
-                                getString(R.string.username_key),
-                                it.username
-                            )
-                            this?.putString(
-                                getString(R.string.user_firstName),
-                                it.userFirstName
-                            )
-                            this?.putString(
-                                getString(R.string.user_lastName),
-                                it.userLastName
-                            )
-                            this?.putString(
-                                getString(R.string.user_address),
-                                it.userAddress
-                            )
-                            this?.putString(
-                                getString(R.string.user_phone),
-                                it.userPhone
-                            )
-                            this?.putString(
-                                getString(R.string.user_poin),
-                                it.userPoin
-                            )
-                            this?.putString(
-                                getString(R.string.user_image),
-                                it.userImage
-                            )
-                            this?.putString(
-                                getString(R.string.login_method_key),
-                                "appLogin"
-                            )
-                            this?.commit()
+                    userLoginViewModel.userLoginResponseData.observe(viewLifecycleOwner, Observer {
+                        if (it != null) {
+                            with(sharedPreferences?.edit()) {
+                                this?.putString(
+                                    getString(R.string.id_key),
+                                    it.userID
+                                )
+                                this?.putString(
+                                    getString(R.string.user_firstName),
+                                    it.userFirstName
+                                )
+                                this?.putString(
+                                    getString(R.string.user_lastName),
+                                    it.userLastName
+                                )
+                                this?.putString(
+                                    getString(R.string.user_address),
+                                    it.userAddress
+                                )
+                                this?.putString(
+                                    getString(R.string.user_phone),
+                                    it.userPhone
+                                )
+                                this?.putString(
+                                    getString(R.string.user_poin),
+                                    it.userPoin
+                                )
+                                this?.putString(
+                                    getString(R.string.user_email),
+                                    it.userEmail
+                                )
+                                this?.putString(
+                                    getString(R.string.user_image),
+                                    it.userImage
+                                )
+                                this?.putString(
+                                    getString(R.string.login_method_key),
+                                    "appLogin"
+                                )
+                                this?.commit()
+                            }
+                            navController.navigate(R.id.action_loginFragment_to_homeActivity)
                         }
-                        navController.navigate(R.id.action_loginFragment_to_homeActivity)
-                    }
-                })
-            }
-        })
+                    })
+                }
+            })
     }
 
     override fun onClick(v: View?) {
