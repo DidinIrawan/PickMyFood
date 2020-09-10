@@ -53,7 +53,7 @@ class HomeFragment : Fragment(),View.OnClickListener {
                 with(sharedPreferences?.edit()){
                     this?.remove(getString(R.string.user_firstName))
                     this?.commit()
-                    v?.findNavController()?.navigate(R.id.action_homeFragment_to_mainActivity)
+                    v?.findNavController()?.navigate(R.id.action_userProfileFragment_to_mainActivity)
                 }
 
             }

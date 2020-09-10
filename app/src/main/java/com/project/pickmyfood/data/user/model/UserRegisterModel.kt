@@ -3,9 +3,10 @@ package com.project.pickmyfood.data.user.model
 class UserRegisterModel(
     var userFirstName: String = "default",
     var userLastName: String = "default",
-    var userAddress: String = "Mojoaja",
+    var userAddress: String = "default",
     var userPhone: String = "default",
-    var userImage: String = "defaultUserPhoto.jpeg",
+    var userEmail: String = "default@gmail.com",
+    var userImage:String= "https://res.cloudinary.com/itproject13/image/upload/v1599465140/defaultImg_tinocb.png",
     var userStatus: String ="Cobacoba",
     var auth: UserRegisterAuth
 ){}
