@@ -22,4 +22,5 @@ class NetworkModul {
         return RetrofitBuilder.createRetrofit().create(UserRegisterAPI::class.java)
     }
 
+
 }

@@ -1,18 +1,23 @@
 package com.project.pickmyfood.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.project.pickmyfood.R
 import kotlinx.android.synthetic.main.activity_home.*
 
+
 class HomeActivity : AppCompatActivity() {
+
+
     lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
         try {
             this.supportActionBar!!.hide()
         } catch (e: NullPointerException) {
@@ -36,6 +41,10 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.profileMenu -> {
                     navController.navigate(R.id.action_global_to_userProfileFragment)
+                    true
+                }
+                R.id.pickMenu -> {
+                    navController.navigate(R.id.action_global_to_qrcode)
                     true
                 }
                 else -> {
