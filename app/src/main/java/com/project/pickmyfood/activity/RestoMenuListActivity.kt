@@ -1,6 +1,9 @@
 package com.project.pickmyfood.activity
 
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.project.pickmyfood.R
 
@@ -13,4 +16,5 @@ class RestoMenuListActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {
         }
     }
+
 }

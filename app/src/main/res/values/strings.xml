@@ -12,7 +12,7 @@
     <string name="search">Cari Resto, Makanan, Minuman......</string>
     <string name="ket_saldo">Saldo Dompet Q</string>
     <string name="saldo">IDN 7.000.000</string>
-    <string name="id_key">ID</string>
+    <string name="id_key">USERID</string>
     <string name="user_firstName">USER_FIRST_NAME</string>
     <string name="user_lastName">USER_LAST_NAME</string>
     <string name="user_address">USER_ADDRESS</string>

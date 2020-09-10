@@ -1,6 +1,9 @@
 package com.project.pickmyfood.container
 
 import com.project.pickmyfood.activity.MainActivity
+import com.project.pickmyfood.screens.detailFood.DetailFoodFragment
+import com.project.pickmyfood.screens.list.FoodListFragment
+import com.project.pickmyfood.screens.list.FoodMenuListFragment
 import com.project.pickmyfood.screens.list.RestoListFragment
 import com.project.pickmyfood.screens.login.LoginFragment
 import com.project.pickmyfood.screens.signup.SignUpFragment
@@ -12,4 +15,7 @@ interface ApplicationComponent {
     fun inject(signUpFragment: SignUpFragment)
     fun inject(mainActivity: MainActivity)
     fun inject(storeList: RestoListFragment)
+    fun inject(foodListFragment: FoodListFragment)
+    fun inject(foodMenuListFragment: FoodMenuListFragment)
+//    fun inject(detailFoodFragment: DetailFoodFragment)
 }

@@ -11,8 +11,26 @@ import java.lang.reflect.Type
 import javax.inject.Inject
 
 class StoreRepository @Inject constructor(val storeAPI: StoreAPI) {
+    var store:MutableLiveData<KeyStore> = MutableLiveData<KeyStore>()
     var storeList: MutableLiveData<List<KeyStore>> = MutableLiveData()
 
+    fun getStore(id: String){
+        storeAPI.getStoreByID(id).enqueue(object : Callback<Wrapper>{
+            override fun onFailure(call: Call<Wrapper>, t: Throwable) {
+                println(t.localizedMessage)
+            }
+
+            override fun onResponse(call: Call<Wrapper>, response: Response<Wrapper>) {
+                val response = response.body()
+                val gson = Gson()
+                val stringResponse = gson.toJson(response)
+                val movieObject = gson.fromJson<KeyStore>(stringResponse,
+                    KeyStore::class.java)
+                store.value = movieObject
+            }
+
+        })
+    }
     fun getAllStore() {
         storeAPI.getAllStore().enqueue(object : Callback<Wrapper> {
             override fun onResponse(

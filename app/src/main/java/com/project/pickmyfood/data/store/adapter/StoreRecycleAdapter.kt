@@ -5,10 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.project.pickmyfood.R
+import com.project.pickmyfood.data.product.ProductViewModel
 import com.project.pickmyfood.data.store.KeyStore
+import com.project.pickmyfood.data.store.StoreViewModel
 import com.squareup.picasso.Picasso
 
 class StoreRecycleAdapter(
@@ -23,9 +27,24 @@ class StoreRecycleAdapter(
     }
 
     override fun onBindViewHolder(holder: StoreViewHolder, position: Int) {
+        val storeImage = storeList[position].storeImage
+        val nameResto = storeList[position].storeName
+        val addressResto = storeList[position].storeAddress
+        val idResto = storeList[position].storeID
+        Picasso.get().load(storeImage).into(holder.imageResto)
         holder.nameResto.text = storeList[position].storeName
         holder.adressResto.text = storeList[position].storeAddress
-        Picasso.with(getImageResto).load(storeList[position].storeImage).into(holder.imageResto)
+        holder.idResto.text = storeList[position].storeID
+//        Picasso.with(getImageResto).load(storeList[position].storeImage).into(holder.imageResto)
+        holder.imageResto.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_restoListFragment_to_foodMenuListFragment, bundleOf(
+                    "imageResto" to storeImage,
+                    "nameResto" to nameResto,
+                    "addressResto" to addressResto,
+                    "storeID" to idResto
+                ))
+        }
     }
 
     override fun getItemCount(): Int {
@@ -34,10 +53,22 @@ class StoreRecycleAdapter(
 
 }
 
-class StoreViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+class StoreViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    lateinit var storeViewModel: StoreViewModel
+    lateinit var productViewModel: ProductViewModel
     var index: Int = 0
+    val idResto= v.findViewById<TextView>(R.id.idFood)
     val imageResto = v.findViewById<ImageView>(R.id.foodImage)
     val nameResto = v.findViewById<TextView>(R.id.foodName)
     val adressResto = v.findViewById<TextView>(R.id.addressFood)
+
+    override fun onClick(v: View?) {
+        when(v){
+            imageResto -> {
+                storeViewModel.getStore(idResto.toString())
+                productViewModel.getAllProductByIdStore(idResto.toString())
+            }
+        }
+    }
 
 }
