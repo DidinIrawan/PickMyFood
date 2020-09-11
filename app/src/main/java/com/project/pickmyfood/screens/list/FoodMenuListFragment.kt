@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.project.pickmyfood.R
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_food_menu_list.*
 import javax.inject.Inject
 
 
-class FoodMenuListFragment : Fragment() {
+class FoodMenuListFragment : Fragment(),View.OnClickListener {
     @Inject
     lateinit var productViewModel: ProductViewModel
 
@@ -61,5 +62,14 @@ class FoodMenuListFragment : Fragment() {
 //            productListRecycleView.adapter = productRecycledApter
 //        })
 //        productViewModel.getAllProductByIdStore(storeId.toString())
+        cartIcon.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when(v){
+            cartIcon ->{
+                v?.findNavController()?.navigate(R.id.action_detailFoodFragment_to_cartFragment)
+            }
+        }
     }
 }
