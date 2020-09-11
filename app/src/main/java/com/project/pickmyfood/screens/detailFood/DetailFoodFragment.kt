@@ -56,12 +56,21 @@ class DetailFoodFragment : Fragment(),View.OnClickListener {
 //        println("Produc QTY $productQuantity")
 //        val note = foodNote?.text.toString()
 //        println("note $note")
-
-
+        var quantity = 0
+        buttonPlus.setOnClickListener {
+            quantity++
+            quantityFood.text = quantity.toString()
+        }
+        buttonMinus.setOnClickListener {
+            quantity--
+            quantityFood.text = quantity.toString()
+        }
 
     }
 
     override fun onClick(v: View?) {
+//        var quantity = 0
+
 //        var productQuantity = v?.findViewById<EditText>(R.id.foodQuantity)
         val foodQuantity = quantityFood.text.toString()
         val note = noteInput.text.toString()
@@ -69,6 +78,10 @@ class DetailFoodFragment : Fragment(),View.OnClickListener {
         val productID = arguments?.getString("productID")
         val priceProduct = arguments?.getString("priceProduct")
         when(v){
+//            buttonPlus -> {
+//                quantity++
+//                quantityFood.text = quantity.toString()
+//            }
             buttonCart -> {
                 cartViewModel.addCartList(productID.toString(),foodQuantity,priceProduct.toString(),note)
                 Toast.makeText(activity, "Added to cart", Toast.LENGTH_SHORT).show()
