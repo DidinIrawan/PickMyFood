@@ -9,15 +9,21 @@ class CartViewModel : ViewModel(){
 
     val cartLiveData: MutableLiveData<MutableList<Cart>> = MutableLiveData(cartList)
 
-    fun addCartList(productID:String, quantity: String, productPrice:String, note:String){
+    fun addCartList(qty:String,productID:String,userID:String, price:String,note:String){
         cartList.add(
             Cart(
+                qty,
                 productID,
-                quantity
-                ,productPrice
-                ,note
+                userID,
+                price,
+                note
             )
         )
         cartLiveData.value = cartList
     }
+    fun removeCart(position: Int){
+        cartList.removeAt(position)
+        cartLiveData.value = cartList
+    }
+
 }

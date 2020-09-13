@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".activity.RestoMenuListActivity">
     <!--    <LinearLayout-->
     <!--        android:layout_width="match_parent"-->
@@ -35,136 +34,165 @@
     <!--        app:layout_constraintVertical_bias="0.0" />-->
 
 
-    <ImageView
-        android:id="@+id/imageView1"
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/header"-->
+<!--        android:src="@drawable/food_bg_shape"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="right"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            app:srcCompat="@drawable/vector_5_" />-->
+<!--    </LinearLayout>-->
+<!--    &lt;!&ndash;    <LinearLayout&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="0dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="500dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:gravity="center"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintVertical_bias="0.0">&ndash;&gt;-->
+
+<!--    &lt;!&ndash;        <de.hdodenhof.circleimageview.CircleImageView&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_width="500dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:layout_height="500dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;            android:src="@drawable/rectangle_5bgheader"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:civ_border_color="#FFFFFF"&ndash;&gt;-->
+<!--    &lt;!&ndash;            app:civ_border_width="2dp" />&ndash;&gt;-->
+<!--    &lt;!&ndash;    </LinearLayout>&ndash;&gt;-->
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/profile_image"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:src="@drawable/rectangle_8imghome"-->
+<!--        app:civ_border_color="#FFFFFF"-->
+<!--        app:civ_border_width="2dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.25" />-->
+
+<!--    &lt;!&ndash;    <LinearLayout&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:id="@+id/backgroundresto"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="409dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="433dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_marginTop="16dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:foreground="@drawable/background_menu_resto"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:orientation="vertical"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/profile_image">&ndash;&gt;-->
+
+<!--    &lt;!&ndash;        &ndash;&gt;-->
+<!--    &lt;!&ndash;    </LinearLayout>&ndash;&gt;-->
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom_navigation"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#C82A2A"-->
+<!--        android:backgroundTint="#FFFFFF"-->
+<!--        android:duplicateParentState="false"-->
+<!--        android:focusableInTouchMode="false"-->
+<!--        android:foregroundTint="#C82A2A"-->
+<!--        android:touchscreenBlocksFocus="true"-->
+<!--        android:transitionGroup="false"-->
+<!--        app:elevation="1dp"-->
+<!--        app:itemHorizontalTranslationEnabled="false"-->
+<!--        app:itemIconSize="25dp"-->
+<!--        app:itemIconTint="@android:color/white"-->
+<!--        app:itemTextColor="#FFFFFF"-->
+<!--        app:labelVisibilityMode="labeled"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/profile_image"-->
+<!--        app:layout_constraintVertical_bias="0.05"-->
+<!--        app:menu="@menu/resto_menu" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/fragment3"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:transitionGroup="false"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/profile_image"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        app:navGraph="@navigation/resto_menu_list_navigation" />-->
+<!--    &lt;!&ndash;    <com.google.android.material.bottomnavigation.BottomNavigationView&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:id="@+id/bottom_navigation"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:background="#C82A2A"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:itemIconSize="25dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:itemIconTint="@android:color/white"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintBottom_toBottomOf="@+id/nav_resto_menu_host_fragment_container"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:menu="@menu/resto_menu" />&ndash;&gt;-->
+<!--    &lt;!&ndash;    <fragment&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:id="@+id/nav_resto_menu_host_fragment_container"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:name="androidx.navigation.fragment.NavHostFragment"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="409dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="729dp"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:defaultNavHost="true"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        app:navGraph="@navigation/resto_menu_list_navigation" />&ndash;&gt;-->
+
+    <RelativeLayout
+        android:id="@+id/pbOrderActive"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/header"
-        android:src="@drawable/food_bg_shape"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:translationZ="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"
-            app:srcCompat="@drawable/vector_5_" />
-    </LinearLayout>
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="500dp"-->
-    <!--        android:gravity="center"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.0">-->
-
-    <!--        <de.hdodenhof.circleimageview.CircleImageView-->
-    <!--            android:layout_width="500dp"-->
-    <!--            android:layout_height="500dp"-->
-    <!--            android:src="@drawable/rectangle_5bgheader"-->
-    <!--            app:civ_border_color="#FFFFFF"-->
-    <!--            app:civ_border_width="2dp" />-->
-    <!--    </LinearLayout>-->
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/rectangle_8imghome"
-        app:civ_border_color="#FFFFFF"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <!--    <LinearLayout-->
-    <!--        android:id="@+id/backgroundresto"-->
-    <!--        android:layout_width="409dp"-->
-    <!--        android:layout_height="433dp"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:foreground="@drawable/background_menu_resto"-->
-    <!--        android:orientation="vertical"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/profile_image">-->
-
-    <!--        -->
-    <!--    </LinearLayout>-->
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#C82A2A"
-        android:backgroundTint="#FFFFFF"
-        android:duplicateParentState="false"
-        android:focusableInTouchMode="false"
-        android:foregroundTint="#C82A2A"
-        android:touchscreenBlocksFocus="true"
-        android:transitionGroup="false"
-        app:elevation="1dp"
-        app:itemHorizontalTranslationEnabled="false"
-        app:itemIconSize="25dp"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="#FFFFFF"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image"
-        app:layout_constraintVertical_bias="0.05"
-        app:menu="@menu/resto_menu" />
-
+            android:layout_gravity="center" />
+    </RelativeLayout>
     <fragment
-        android:id="@+id/fragment3"
+        android:id="@+id/fragment2"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:transitionGroup="false"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/resto_menu_list_navigation" />
-    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--        android:id="@+id/bottom_navigation"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="#C82A2A"-->
-    <!--        app:itemIconSize="25dp"-->
-    <!--        app:itemIconTint="@android:color/white"-->
-    <!--        app:layout_constraintBottom_toBottomOf="@+id/nav_resto_menu_host_fragment_container"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:menu="@menu/resto_menu" />-->
-    <!--    <fragment-->
-    <!--        android:id="@+id/nav_resto_menu_host_fragment_container"-->
-    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
-    <!--        android:layout_width="409dp"-->
-    <!--        android:layout_height="729dp"-->
-    <!--        app:defaultNavHost="true"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:navGraph="@navigation/resto_menu_list_navigation" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

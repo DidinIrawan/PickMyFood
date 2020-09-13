@@ -40,7 +40,7 @@ class HomeFragment : Fragment(),View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         tukarPoinButton.setOnClickListener(this)
 
-        val userFirstName = sharedPreferences?.getString(
+        val userFirstName = sharedPreferences?.getString( // for get sharedPreferences
             getString(R.string.user_firstName),
             getString(R.string.default_value)
         )

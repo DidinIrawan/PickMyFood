@@ -12,10 +12,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.project.pickmyfood.R
 import com.project.pickmyfood.data.product.Product
+import com.squareup.picasso.Picasso
 
 class ProductRecycledApter(
     private val productList: List<Product>,
-    private val activity: FragmentActivity?
+    private val activity: FragmentActivity?,
+    val storeID:String
 
 ) : RecyclerView.Adapter<ProductViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -29,11 +31,11 @@ class ProductRecycledApter(
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-//        val productImage = productList[position].
+        val productImage = productList[position].productImage
         val productID = productList[position].productID
         val nameProduct = productList[position].productName
         val priceProduct = productList[position].productPrice.price
-//        Picasso.get().load(productImage).into(holder.imageFood)
+        Picasso.get().load(productImage).into(holder.imageFood)
 
         holder.productName.text = productList[position].productName
         holder.productPrice.text = "Rp. ${productList[position].productPrice.price}"
@@ -45,7 +47,9 @@ class ProductRecycledApter(
                 .navigate(R.id.action_global_to_detailFoodFragment, bundleOf(
                     "productID" to productID,
                     "nameProduct" to nameProduct,
-                    "priceProduct" to priceProduct
+                    "priceProduct" to priceProduct,
+                    "productImage" to productImage,
+                    "storeID" to storeID
                 )
                 )
         }
