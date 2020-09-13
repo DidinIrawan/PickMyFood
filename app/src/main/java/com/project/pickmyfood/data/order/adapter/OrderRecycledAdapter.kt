@@ -33,6 +33,9 @@ class OrderRecycledAdapter(
 //        val Qty:String="",
 //        val price:String="",
 //        val note:String=""
+        holder.productNameFood.text = orderList[position].productName
+        holder.priceProduct.text = orderList[position].price
+        holder.qtyProduct.text = orderList[position].Qty
 
 
     }
@@ -43,7 +46,7 @@ class OrderViewHolder(v: View): RecyclerView.ViewHolder(v){
     val orderID = v.findViewById<TextView>(R.id.orderIDText)
     val storeID = v.findViewById<TextView>(R.id.storeIDText)
     val orderCreated = v.findViewById<TextView>(R.id.orderDateText)
-    val productName = v.findViewById<TextView>(R.id.foodNameProduct)
+    val productNameFood = v.findViewById<TextView>(R.id.foodNameProduct)
     val priceProduct = v.findViewById<TextView>(R.id.priceFood)
     val qtyProduct = v.findViewById<TextView>(R.id.qty)
 

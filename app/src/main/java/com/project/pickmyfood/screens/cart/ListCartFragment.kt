@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.pickmyfood.R
 import com.project.pickmyfood.container.MyApplication
 import com.project.pickmyfood.data.checkout.CheckOutViewModel
@@ -49,7 +50,8 @@ class ListCartFragment : Fragment() {
 //        )
         val orderID = arguments?.getString("orderID")
         orderIDText.text = orderID
-
+        orderViewModel.getOrderByID(orderID.toString())
+        orderListRecycleView.layoutManager = LinearLayoutManager(activity)
         orderViewModel.order?.observe(viewLifecycleOwner, Observer {
             orderRecycledAdapter= OrderRecycledAdapter(it.soldItems)
             orderListRecycleView.adapter = orderRecycledAdapter
