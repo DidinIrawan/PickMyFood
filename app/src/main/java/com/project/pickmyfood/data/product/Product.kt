@@ -5,6 +5,7 @@ class Product(
     var productName:String = "",
     var productStock:String = "",
     var productStatus:String = "",
+    var productImage:String="",
     var productPrice: Price
 )
 class Price(

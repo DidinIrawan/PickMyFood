@@ -67,16 +67,16 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
         when (v) {
             btn_Logout -> {
                 with(sharedPreferences?.edit()) {
-                    this?.remove(getString(R.string.user_firstName))
-                    this?.remove(getString(R.string.user_lastName))
-                    this?.remove(getString(R.string.user_phone))
-                    this?.remove(getString(R.string.user_email))
-                    this?.remove(getString(R.string.user_poin))
-                    this?.remove(getString(R.string.id_key))
-                    this?.remove(getString(R.string.user_address))
-                    this?.remove(getString(R.string.user_image))
+//                    this?.remove(getString(R.string.user_firstName))
+//                    this?.remove(getString(R.string.user_lastName))
+//                    this?.remove(getString(R.string.user_phone))
+//                    this?.remove(getString(R.string.user_email))
+//                    this?.remove(getString(R.string.user_poin))
+//                    this?.remove(getString(R.string.id_key))
+//                    this?.remove(getString(R.string.user_address))
+//                    this?.remove(getString(R.string.user_image))
 
-
+                    this?.clear() // for all
 
                     this?.commit()
                     v?.findNavController()

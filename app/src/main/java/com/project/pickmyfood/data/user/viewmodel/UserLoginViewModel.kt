@@ -1,5 +1,6 @@
 package com.project.pickmyfood.data.user.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.project.pickmyfood.data.user.model.UserLoginModel
 import com.project.pickmyfood.data.user.repository.UserLoginRepository
@@ -9,7 +10,7 @@ class UserLoginViewModel @Inject constructor(var userLoginRepository: UserLoginR
     ViewModel() {
     var userLoginResponse = userLoginRepository.userLoginResponse
     var userLoginResponseData = userLoginRepository.userLoginResponseData
-    fun loginUser(userLoginModel: UserLoginModel) {
-        userLoginRepository.loginUser(userLoginModel)
+    fun loginUser(userLoginModel: UserLoginModel,context:Context) {
+        userLoginRepository.loginUser(userLoginModel,context)
     }
 }

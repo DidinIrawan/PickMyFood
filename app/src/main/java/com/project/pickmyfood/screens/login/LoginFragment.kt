@@ -47,7 +47,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (sharedPreferences?.contains(getString(R.string.username_key))!! && sharedPreferences?.contains(
+        if (sharedPreferences?.contains(getString(R.string.id_key))!! && sharedPreferences?.contains(
                 getString(R.string.login_method_key)
             )!!
         ) {
@@ -61,7 +61,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
         userLoginViewModel.userLoginResponse.observe(
             viewLifecycleOwner,
             androidx.lifecycle.Observer {
-                if (it.statusCode == 400.toString()) {
+                if (it.statusCode == 401.toString()) {
                     Toast.makeText(
                         this.context,
                         "Username or password is wrong",
@@ -71,7 +71,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                     Toast.makeText(this.context, "Login Success", Toast.LENGTH_SHORT).show()
 
                     userLoginViewModel.userLoginResponseData.observe(viewLifecycleOwner, Observer {
-                        if (it != null) {
+                        if (it != null) {//for put sharedPreferences
                             with(sharedPreferences?.edit()) {
                                 this?.putString(
                                     getString(R.string.id_key),
@@ -133,7 +133,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 ){
                     Toast.makeText(this.context, "Isi semua form", Toast.LENGTH_SHORT).show()
                 } else {
-                    userLoginViewModel.loginUser(userLoginModel)
+                    userLoginViewModel.loginUser(userLoginModel,requireContext())
                 }
             }
         }

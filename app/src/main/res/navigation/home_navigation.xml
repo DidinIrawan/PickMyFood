@@ -34,13 +34,6 @@
     <action
         android:id="@+id/action_userProfileFragment_to_loginFragment2"
         app:destination="@id/loginFragment2" />
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.project.pickmyfood.screens.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-
-    </fragment>
     <action
         android:id="@+id/action_restoListFragment_to_foodMenuListFragment"
         app:destination="@id/foodMenuListFragment" />
@@ -50,6 +43,17 @@
     <action
         android:id="@+id/action_detailFoodFragment_to_cartFragment"
         app:destination="@id/cartFragment" />
+    <action
+        android:id="@+id/action_cartFragment_to_listCartFragment"
+        app:destination="@id/listCartFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.project.pickmyfood.screens.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+
     <fragment
         android:id="@+id/restoListFragment"
         android:name="com.project.pickmyfood.screens.list.RestoListFragment"
@@ -106,5 +110,11 @@
         android:id="@+id/cartFragment"
         android:name="com.project.pickmyfood.screens.cart.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+    </fragment>
+    <fragment
+        android:id="@+id/listCartFragment"
+        android:name="com.project.pickmyfood.screens.cart.ListCartFragment"
+        android:label="fragment_list_cart"
+        tools:layout="@layout/fragment_list_cart" />
 </navigation>

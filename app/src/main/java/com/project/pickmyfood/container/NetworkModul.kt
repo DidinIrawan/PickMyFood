@@ -1,6 +1,8 @@
 package com.project.pickmyfood.container
 
 import com.project.pickmyfood.config.RetrofitBuilder
+import com.project.pickmyfood.data.checkout.CheckOutApi
+import com.project.pickmyfood.data.order.OrderAPI
 import com.project.pickmyfood.data.product.ProductAPI
 import com.project.pickmyfood.data.store.StoreAPI
 import com.project.pickmyfood.data.user.api.UserLoginAPI
@@ -26,5 +28,14 @@ class NetworkModul {
     @Provides
     fun provideProductAPI(): ProductAPI {
         return RetrofitBuilder.createRetrofit().create(ProductAPI::class.java)
+    }
+    @Provides
+    fun provideCheckOutAPI(): CheckOutApi {
+        return RetrofitBuilder.createRetrofit().create(CheckOutApi::class.java)
+    }
+
+    @Provides
+    fun provideOrderAPI(): OrderAPI {
+        return RetrofitBuilder.createRetrofit().create(OrderAPI::class.java)
     }
 }

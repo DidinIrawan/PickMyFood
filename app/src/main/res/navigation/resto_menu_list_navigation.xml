@@ -3,10 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/resto_menu_list"
-    app:startDestination="@id/foodListFragment">
+    app:startDestination="@id/foodMenuListFragment2">
+    <action
+        android:id="@+id/action_foodListFragment_to_detailFoodFragment2"
+        app:destination="@id/detailFoodFragment2" />
+    <action
+        android:id="@+id/action_detailFoodFragment2_to_cartFragment2"
+        app:destination="@id/cartFragment2" />
+    <action
+        android:id="@+id/action_cartFragment2_to_listCartFragment2"
+        app:destination="@id/listCartFragment2" />
     <fragment
-        android:id="@+id/foodListFragment"
-        android:name="com.project.pickmyfood.screens.list.FoodListFragment"
-        android:label="fragment_food_list"
-        tools:layout="@layout/fragment_food_list" />
+        android:id="@+id/detailFoodFragment2"
+        android:name="com.project.pickmyfood.screens.detailFood.DetailFoodFragment"
+        android:label="fragment_detail_food"
+        tools:layout="@layout/fragment_detail_food" >
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment2"
+        android:name="com.project.pickmyfood.screens.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" >
+    </fragment>
+    <fragment
+        android:id="@+id/listCartFragment2"
+        android:name="com.project.pickmyfood.screens.cart.ListCartFragment"
+        android:label="fragment_list_cart"
+        tools:layout="@layout/fragment_list_cart" />
+    <fragment
+        android:id="@+id/foodMenuListFragment2"
+        android:name="com.project.pickmyfood.screens.list.FoodMenuListFragment"
+        android:label="fragment_food_menu_list"
+        tools:layout="@layout/fragment_food_menu_list" />
 </navigation>

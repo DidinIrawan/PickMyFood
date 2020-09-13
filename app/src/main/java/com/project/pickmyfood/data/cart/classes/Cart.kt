@@ -1,8 +1,9 @@
 package com.project.pickmyfood.data.cart.classes
 
-class Cart(productID:String, quantity:String,productPrice:String,note:String ){
+class Cart(qty:String,productID:String,userID:String, price:String,note:String ){
+    val qty =  qty
     val productID =  productID
-    val quantity =  quantity
-    val productPrice =  productPrice
+    val userID = userID
+    val price =  price
     val note =  note
 }

@@ -44,7 +44,7 @@ class FoodMenuListFragment : Fragment(),View.OnClickListener {
         val restoName = arguments?.getString("nameResto")
         val restoAddress = arguments?.getString("addressResto")
         val storeId = arguments?.getString("storeID")
-        println("ID Store ${storeId}")
+        println("ID Store1 ${storeId}")
 
         nameRestoText.text = "${restoName.toString()}"
         addressRestoText.text = "${restoAddress.toString()}"
@@ -52,7 +52,7 @@ class FoodMenuListFragment : Fragment(),View.OnClickListener {
 
         productListRecycleView.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         productViewModel.product?.observe(viewLifecycleOwner, Observer {
-            productRecycledApter = ProductRecycledApter(it, activity)
+            productRecycledApter = ProductRecycledApter(it, activity,storeId.toString())//kirim value ke recycleView
             productListRecycleView.adapter = productRecycledApter
         })
         productViewModel.getAllProductByIdStore(storeId.toString())
@@ -68,7 +68,7 @@ class FoodMenuListFragment : Fragment(),View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             cartIcon ->{
-                v?.findNavController()?.navigate(R.id.action_detailFoodFragment_to_cartFragment)
+                v?.findNavController()?.navigate(R.id.action_detailFoodFragment2_to_cartFragment2)
             }
         }
     }

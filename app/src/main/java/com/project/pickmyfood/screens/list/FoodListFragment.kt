@@ -37,11 +37,11 @@ class FoodListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        productRecycleView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        productViewModel.product?.observe(viewLifecycleOwner, Observer {
-            adapter = ProductRecycledApter(it, activity)
-            productRecycleView.adapter = adapter
-        })
+//        productRecycleView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+//        productViewModel.product?.observe(viewLifecycleOwner, Observer {
+//            adapter = ProductRecycledApter(it, activity)
+//            productRecycleView.adapter = adapter
+//        })
 //        productViewModel.getAllProductByIdProduct()
     }
 }
