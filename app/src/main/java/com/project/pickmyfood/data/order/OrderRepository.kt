@@ -12,6 +12,7 @@ import javax.inject.Inject
 
 class OrderRepository @Inject constructor(val orderAPI: OrderAPI){
     val orderList: MutableLiveData<Order> = MutableLiveData()
+    val orderListData: MutableLiveData<List<SoldItems>> = MutableLiveData<List<SoldItems>>()
     fun getOrderByID(id:String){
         orderAPI.getOrderByID(id).enqueue(object :Callback<Wrapper>{
             override fun onFailure(call: Call<Wrapper>, t: Throwable) {
@@ -25,6 +26,11 @@ class OrderRepository @Inject constructor(val orderAPI: OrderAPI){
                 val gson = Gson()
                 val outputOrderList: Order = gson.fromJson(gson.toJson(res),listOfOrder)
                 orderList.value = outputOrderList
+                println("Response order : $res")
+
+                orderListData.value = outputOrderList.soldItems
+
+
             }
 
         })
