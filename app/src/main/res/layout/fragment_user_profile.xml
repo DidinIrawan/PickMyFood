@@ -18,18 +18,18 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/design_default_color_error"
-        android:text="Edit Profil"
-        android:textColor="#FFFFFF"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="70dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:backgroundTint="@color/design_default_color_error"-->
+<!--        android:text="Edit Profil"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/linearLayout16"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <View
         android:id="@+id/view"
