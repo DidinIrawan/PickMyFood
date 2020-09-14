@@ -9,14 +9,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.project.pickmyfood.R
+import com.project.pickmyfood.container.MyApplication
+import com.project.pickmyfood.data.profil.ProfilViewModel
+import kotlinx.android.synthetic.main.activity_wallet.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import javax.inject.Inject
+import androidx.lifecycle.Observer
 
 
 class HomeFragment : Fragment(),View.OnClickListener {
+    @Inject
+    lateinit var profilViewModel: ProfilViewModel
     var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
         sharedPreferences = activity?.getSharedPreferences(
             getString(R.string.shared_preference_name),
             Context.MODE_PRIVATE
@@ -39,12 +47,18 @@ class HomeFragment : Fragment(),View.OnClickListener {
             getString(R.string.user_firstName),
             getString(R.string.default_value)
         )
-        val poin = sharedPreferences?.getString( // for get sharedPreferences
-            getString(R.string.user_poin),
+        val userID = sharedPreferences?.getString(
+            getString(R.string.id_key),
             getString(R.string.default_value)
         )
+
         menuHomeText.text = "Hi, $userFirstName"
-        point.text = "$poin Point"
+        profilViewModel.profil?.observe(viewLifecycleOwner, Observer {
+           point.text = it.userPoin
+        })
+        println("USER ID YANG DI HOME $userID")
+profilViewModel.getUserProfil(userID.toString())
+
     }
 
     override fun onClick(v: View?) {

@@ -64,6 +64,7 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
             getString(R.string.user_address),
             getString(R.string.default_value)
         )
+
       userName.text = "$userFirstname " + " " + "$userLastname"
         userTlp.text = "$userPhone"
         profilEmail.text = "$userEmail"

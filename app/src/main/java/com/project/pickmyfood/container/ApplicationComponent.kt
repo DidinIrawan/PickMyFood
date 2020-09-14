@@ -6,6 +6,7 @@ import com.project.pickmyfood.screens.cart.CartFragment
 import com.project.pickmyfood.screens.cart.ListCartFragment
 import com.project.pickmyfood.screens.detailFood.DetailFoodFragment
 import com.project.pickmyfood.activity.WalletActivity
+import com.project.pickmyfood.screens.home.HomeFragment
 import com.project.pickmyfood.screens.list.FoodListFragment
 import com.project.pickmyfood.screens.list.FoodMenuListFragment
 import com.project.pickmyfood.screens.list.RestoListFragment
@@ -28,4 +29,5 @@ interface ApplicationComponent {
     fun inject(cartFragment: CartFragment)
     fun inject(listCartFragment: ListCartFragment)
     fun inject(qRcode: QRcode)
+    fun inject(homeFragment: HomeFragment)
 }
