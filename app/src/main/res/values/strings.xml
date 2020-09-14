@@ -21,7 +21,9 @@
     <string name="user_email">USER_EMAIL</string>
     <string name="user_image">USER_IMAGE</string>
     <string name="username_key">USERNAME</string>
-
+    <string name="save">
+SAVE
+</string>
     <string name="default_value">DEFAULT</string>
 
     <string name="login_method_key">LOGIN_METHOD</string>

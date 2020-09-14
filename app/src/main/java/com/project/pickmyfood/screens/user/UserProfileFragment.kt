@@ -56,10 +56,15 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
             getString(R.string.user_poin),
             getString(R.string.default_value)
         )
-        userName.text = "$userFirstname " + " " + "$userLastname"
+        val userAdress = sharedPreferences?.getString(
+            getString(R.string.user_address),
+            getString(R.string.default_value)
+        )
+      userName.text = "$userFirstname " + " " + "$userLastname"
         userTlp.text = "$userPhone"
         profilEmail.text = "$userEmail"
         userPoint.text = "$userPoin"
+        userAdress1.text = "$userAdress"
 
     }
 
@@ -75,9 +80,6 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
                     this?.remove(getString(R.string.id_key))
                     this?.remove(getString(R.string.user_address))
                     this?.remove(getString(R.string.user_image))
-
-
-
                     this?.commit()
                     v?.findNavController()
                         ?.navigate(R.id.action_userProfileFragment_to_mainActivity)
