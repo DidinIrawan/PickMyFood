@@ -23,6 +23,7 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
     }
 
     private fun initScannerView() {
+
         mScannerView = ZXingScannerView(this)
         mScannerView.setAutoFocus(true)
         mScannerView.setResultHandler(this)

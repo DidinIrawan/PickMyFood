@@ -3,27 +3,23 @@ package com.project.pickmyfood.screens.cart
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.project.pickmyfood.R
 import com.project.pickmyfood.container.MyApplication
-import com.project.pickmyfood.data.cart.classes.Cart
 import com.project.pickmyfood.data.cart.recycleview.CartRecycleView
 import com.project.pickmyfood.data.cart.viewmodel.CartViewModel
 import com.project.pickmyfood.data.checkout.CheckOut
 import com.project.pickmyfood.data.checkout.CheckOutViewModel
-import com.project.pickmyfood.data.product.adapter.ProductRecycledApter
-import kotlinx.android.synthetic.main.cart_recycle_view.*
 import kotlinx.android.synthetic.main.fragment_cart.*
 import javax.inject.Inject
 
@@ -65,11 +61,7 @@ class CartFragment : Fragment(),View.OnClickListener {
             cartRecyclerView.notifyDataSetChanged()
         })
 
-//        var subtotal:Int = 0
-//        for (i in cartViewModel.cartList.indices){
-//            println("cartlist : ${cartViewModel.cartList[i].price}")
-//            subtotal += (cartViewModel.cartList[i].price.toInt())
-//        }
+
 //        totalPrice.text = subtotal.toString()
         buttonContinue.setOnClickListener(this)
 
@@ -127,6 +119,13 @@ class CartFragment : Fragment(),View.OnClickListener {
         when(v){
 
             checkoutText -> {
+                var subtotal: Int = 0
+                for (i in cartViewModel.cartList.indices) {
+                    println("cartlist : ${cartViewModel.cartList[i].price}")
+                    subtotal += (cartViewModel.cartList[i].price.toInt())
+                }
+
+                println("Total Card : $subtotal")
                 val storeID = arguments?.getString("storeID")
                 val checkOut = CheckOut(
                     storeID = storeID.toString(),
@@ -139,7 +138,8 @@ class CartFragment : Fragment(),View.OnClickListener {
                 checkOutViewModel.checkOutResponseData.observe(viewLifecycleOwner, Observer {
                     v?.findNavController()?.navigate(R.id.action_cartFragment_to_listCartFragment,
                         bundleOf(
-                            "orderID" to it.orderID
+                            "orderID" to it.orderID,
+                            "total" to subtotal
                         ))
                 })
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.user.EditUserProfile">
+    <View
+        android:id="@+id/rectangle_4"
+        android:layout_width="match_parent"
+        android:layout_height="553dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/rectangle_4" />
+    <View
+        android:id="@+id/rectangle_1"
+        android:layout_width="match_parent"
+        android:layout_height="239dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-24dp"
+        android:background="@drawable/rectangle_1"
+        />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#C21313"
+        android:text="SAVE"
+        android:textSize="25dp"
+
+        android:textColor="@color/ic_launcher_background"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="300dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/inputFirstname"
+    android:layout_width="300dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="-60dp"
+    android:ems="10"
+    android:background="#FFFFFF"
+    android:inputType="textPersonName"
+    android:hint="Firstname" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputLastName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:background="#FFFFFF"
+        android:inputType="textPersonName"
+        android:hint="LastName" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputLastAdress"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:background="#FFFFFF"
+        android:inputType="textPersonName"
+        android:hint="Adress" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputLastNoTlp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:background="#FFFFFF"
+        android:inputType="textPersonName"
+        android:hint="No Telp." />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputEmail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:background="#FFFFFF"
+        android:inputType="textPersonName"
+        android:hint="Email." />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/rectangle_8imghome"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
+        android:layout_marginTop="30dp"
+       android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profil"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:layout_marginTop="-120dp"/>
+</FrameLayout>

@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.pickmyfood.R
-import com.project.pickmyfood.data.order.Order
 import com.project.pickmyfood.data.order.SoldItems
-import com.project.pickmyfood.data.product.adapter.ProductViewHolder
 
 class OrderRecycledAdapter(
     private val orderList: List<SoldItems>,
@@ -39,7 +37,7 @@ class OrderRecycledAdapter(
 //            println("cartlist : ${cartViewModel.cartList[i].price}")
             subtotal += (orderList[i].subtotal.toInt())
         }
-        totalOrderPrice.text = "Rp. ${subtotal.toString()}"
+        totalOrderPrice.text = "Rp. $subtotal"
 
     }
 
@@ -52,5 +50,6 @@ class OrderViewHolder(v: View): RecyclerView.ViewHolder(v){
     val productNameFood = v.findViewById<TextView>(R.id.productNameDetail)
     val priceProduct = v.findViewById<TextView>(R.id.priceFood)
     val qtyProduct = v.findViewById<TextView>(R.id.qty)
+
 
 }

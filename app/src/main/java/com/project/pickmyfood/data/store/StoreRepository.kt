@@ -24,9 +24,9 @@ class StoreRepository @Inject constructor(val storeAPI: StoreAPI) {
                 val response = response.body()
                 val gson = Gson()
                 val stringResponse = gson.toJson(response)
-                val movieObject = gson.fromJson<KeyStore>(stringResponse,
+                val storeObject = gson.fromJson<KeyStore>(stringResponse,
                     KeyStore::class.java)
-                store.value = movieObject
+                store.value = storeObject
             }
 
         })
