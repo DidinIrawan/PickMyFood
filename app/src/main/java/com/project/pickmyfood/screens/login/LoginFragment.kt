@@ -98,6 +98,10 @@ class LoginFragment : Fragment(), View.OnClickListener {
                                     it.userPoin
                                 )
                                 this?.putString(
+                                    getString(R.string.user_amount),
+                                    it.amount
+                                )
+                                this?.putString(
                                     getString(R.string.user_email),
                                     it.userEmail
                                 )

@@ -83,6 +83,7 @@ class DetailFoodFragment : Fragment(),View.OnClickListener {
         val productID = arguments?.getString("productID")
         val priceProduct = arguments?.getString("priceProduct")!!.toInt()
         val priceTotal: Int = quantityTotal*priceProduct
+        val nameProduct = arguments?.getString("nameProduct")
 
         val userID = sharedPreferences?.getString(
             getString(R.string.id_key),
@@ -92,9 +93,9 @@ class DetailFoodFragment : Fragment(),View.OnClickListener {
 
             buttonCart -> {
                 val storeId = arguments?.getString("storeID")
-                val nameProduct = arguments?.getString("nameProduct")
+                println("productName $nameProduct")
                 println("Button Cart $storeId")
-                cartViewModel.addCartList(foodQuantity,productID.toString(),userID.toString(),priceTotal.toString(),note)
+                cartViewModel.addCartList(foodQuantity,productID.toString(),nameProduct.toString(),userID.toString(),priceTotal.toString(),note)
                 Toast.makeText(activity, "Added to cart", Toast.LENGTH_SHORT).show()
                 v?.findNavController()?.navigate(R.id.action_detailFoodFragment_to_cartFragment, bundleOf(
                     "storeID" to storeId,

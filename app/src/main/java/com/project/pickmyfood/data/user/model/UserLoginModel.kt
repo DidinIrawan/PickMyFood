@@ -12,6 +12,7 @@ class UserLoginResponseDataModel(
     var userAddress: String = "default",
     var userPhone: String = "default",
     var userPoin: String = "default",
+    var amount: String = "default",
     var userEmail: String = "default",
     var userImage: String = "defaultUserPhoto.jpeg"
 ) {}

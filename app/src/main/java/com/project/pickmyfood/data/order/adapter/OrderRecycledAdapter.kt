@@ -30,14 +30,14 @@ class OrderRecycledAdapter(
 //        holder.productNameFood.text = "COba"
 
         holder.productNameFood.text = orderList[position].productName
-        holder.priceProduct.text = "Rp. ${orderList[position].price}"
+        holder.priceProduct.text = "Rp. ${orderList[position].subtotal}"
         holder.qtyProduct.text = "${orderList[position].Qty}x"
         println("recycleview ${orderList[position].productName}")
 
         var subtotal:Int = 0
         for (i in orderList.indices){
 //            println("cartlist : ${cartViewModel.cartList[i].price}")
-            subtotal += (orderList[i].price.toInt())
+            subtotal += (orderList[i].subtotal.toInt())
         }
         totalOrderPrice.text = "Rp. ${subtotal.toString()}"
 

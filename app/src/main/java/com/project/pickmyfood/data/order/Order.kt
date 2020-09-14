@@ -14,5 +14,6 @@ class SoldItems(
     val productName: String = "",
     val Qty: String = "",
     val price: String = "",
+    val subtotal: String = "",
     val note: String = ""
 )
