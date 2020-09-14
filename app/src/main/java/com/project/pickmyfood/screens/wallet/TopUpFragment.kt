@@ -1,33 +1,35 @@
 package com.project.pickmyfood.screens.wallet
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
+import androidx.fragment.app.Fragment
 import com.project.pickmyfood.R
+import com.project.pickmyfood.container.MyApplication
+import com.project.pickmyfood.data.wallet.TopUpWallet
+import com.project.pickmyfood.data.wallet.WalletViewModel
+import kotlinx.android.synthetic.main.fragment_top_up.*
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TopUpFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class TopUpFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class TopUpFragment : Fragment(), View.OnClickListener {
+
+    @Inject
+    lateinit var walletViewModel: WalletViewModel
+    var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        sharedPreferences = activity?.getSharedPreferences(
+            getString(R.string.shared_preference_name),
+            Context.MODE_PRIVATE
+        )
+        (activity?.application as MyApplication).applicationComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -38,23 +40,35 @@ class TopUpFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_top_up, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TopUpFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TopUpFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        topUpInputText.text
+        topUpButton.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        val userID = sharedPreferences?.getString(
+            getString(R.string.id_key),
+            getString(R.string.default_value)
+        )
+        println("USER ID $userID")
+        when (v) {
+            topUpButton -> {
+                val topUpWallet = TopUpWallet(topUpAmount = topUpInputText.text.toString())
+
+                if (topUpInputText.text.toString() == "") {
+                    Toast.makeText(this.context, "Must be Field", LENGTH_SHORT).show()
+                } else {
+                    walletViewModel.topUpWallet(topUpWallet, userID.toString())
+                    Toast.makeText(
+                        this.context,
+                        "Top UP Success, Waiting For Confirmation",
+                        LENGTH_SHORT
+                    ).show()
                 }
             }
+
+        }
     }
 }

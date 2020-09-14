@@ -7,6 +7,7 @@ import com.project.pickmyfood.data.product.ProductAPI
 import com.project.pickmyfood.data.store.StoreAPI
 import com.project.pickmyfood.data.user.api.UserLoginAPI
 import com.project.pickmyfood.data.user.api.UserRegisterAPI
+import com.project.pickmyfood.data.wallet.WalletAPI
 import dagger.Module
 import dagger.Provides
 
@@ -37,5 +38,10 @@ class NetworkModul {
     @Provides
     fun provideOrderAPI(): OrderAPI {
         return RetrofitBuilder.createRetrofit().create(OrderAPI::class.java)
+    }
+
+    @Provides
+    fun provideWalletAPI(): WalletAPI {
+        return RetrofitBuilder.createRetrofit().create(WalletAPI::class.java)
     }
 }
