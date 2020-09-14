@@ -49,67 +49,35 @@
                 android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="Thank you for using our service"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="3"
-                        android:text="@string/store_id"
-                        android:textColor="#090909"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/idProductRating"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:text="@string/storeId_rating"
-                        android:textColor="#090909"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ratingDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="3"
-                        android:text="@string/user_id"
-                        android:textColor="#090909"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/userIDRating"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:text="@string/userId_rating"
-                        android:textColor="#090909"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:hint="@string/rating_description"
+                    android:inputType="textMultiLine"
+                    android:textColor="#000000"
+                    android:textColorHint="#494949" />
 
                 <RatingBar
+                    android:id="@+id/ratingResto"
                     style="?android:attr/smallIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:isIndicator="true"
                     android:numStars="5"
                     android:rating="0"
@@ -126,20 +94,10 @@
                     android:textColorHint="#000000"
                     app:hintTextColor="#000000">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/userPasswordInput"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:hint="@string/rating_description"
-                        android:inputType="textMultiLine"
-                        android:textColor="#000000"
-                        android:textColorHint="#020202" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/userLoginButton"
+                    android:id="@+id/buttonRating"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

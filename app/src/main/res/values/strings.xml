@@ -58,5 +58,7 @@
 
     <color name="colorGolden">#ffbf00</color>
     <color name="colorGray">#AAA3A3</color>
+    <color name="colorBlueOcean">#C2DEED</color>
+
 
 </resources>
