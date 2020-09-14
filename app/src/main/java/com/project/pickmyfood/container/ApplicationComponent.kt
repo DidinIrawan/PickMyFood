@@ -1,5 +1,6 @@
 package com.project.pickmyfood.container
 
+import com.project.pickmyfood.screens.qrcode.QRcode
 import com.project.pickmyfood.activity.MainActivity
 import com.project.pickmyfood.screens.cart.CartFragment
 import com.project.pickmyfood.screens.cart.ListCartFragment
@@ -26,4 +27,5 @@ interface ApplicationComponent {
 //    fun inject(detailFoodFragment: DetailFoodFragment)
     fun inject(cartFragment: CartFragment)
     fun inject(listCartFragment: ListCartFragment)
+    fun inject(qRcode: QRcode)
 }

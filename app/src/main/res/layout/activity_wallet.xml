@@ -67,7 +67,7 @@
             android:gravity="center"
             android:linksClickable="false"
             android:singleLine="false"
-            android:text="@string/saldo"
+            android:text=""
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold" />

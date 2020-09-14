@@ -28,9 +28,9 @@
     <action
         android:id="@+id/action_restoListFragment_to_restoMenuListActivity2"
         app:destination="@id/restoMenuListActivity2" />
-<!--    <action-->
-<!--        android:id="@+id/action_homeFragment_to_mainActivity"-->
-<!--        app:destination="@id/mainActivity" />-->
+    <!--    <action-->
+    <!--        android:id="@+id/action_homeFragment_to_mainActivity"-->
+    <!--        app:destination="@id/mainActivity" />-->
     <action
         android:id="@+id/action_userProfileFragment_to_loginFragment2"
         app:destination="@id/loginFragment2" />
