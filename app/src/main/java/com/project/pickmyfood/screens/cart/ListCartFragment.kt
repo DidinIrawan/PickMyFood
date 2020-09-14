@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.pickmyfood.R
 import com.project.pickmyfood.container.MyApplication
-import com.project.pickmyfood.data.checkout.CheckOutViewModel
 import com.project.pickmyfood.data.order.OrderViewModel
 import com.project.pickmyfood.data.order.adapter.OrderRecycledAdapter
 import kotlinx.android.synthetic.main.fragment_list_cart.*
@@ -48,14 +47,20 @@ class ListCartFragment : Fragment() {
 //            getString(R.string.order_key),
 //            getString(R.string.default_value)
 //        )
+        orderListRecycleView.layoutManager = LinearLayoutManager(this.context)
+
         val orderID = arguments?.getString("orderID")
         orderIDText.text = orderID
         orderViewModel.getOrderByID(orderID.toString())
-        orderListRecycleView.layoutManager = LinearLayoutManager(activity)
+//        orderListRecycleView.layoutManager = LinearLayoutManager(activity)
         orderViewModel.order?.observe(viewLifecycleOwner, Observer {
-            orderRecycledAdapter= OrderRecycledAdapter(it.soldItems)
-            orderListRecycleView.adapter = orderRecycledAdapter
-            orderDateText.text = it.orderCreated
+            if (it!=null){
+                orderRecycledAdapter= OrderRecycledAdapter(it.soldItems,totalOrderPrice)
+                orderListRecycleView.adapter = orderRecycledAdapter
+                println("SoldItems ${it.soldItems[0].productName}")
+                orderDateText.text = it.orderCreated
+                storeIDText.text = it.storeID
+            }
         })
 
         println("order ID ${orderIDText.toString()}")
