@@ -5,9 +5,21 @@
     android:id="@+id/wallet_navigation"
     app:startDestination="@id/topUpFragment">
 
+    <action
+        android:id="@+id/action_topUpFragment_to_historyFragment"
+        app:destination="@id/historyFragment" />
+    <action
+        android:id="@+id/action_historyFragment_to_topUpFragment"
+        app:destination="@id/topUpFragment" />
+
     <fragment
         android:id="@+id/topUpFragment"
         android:name="com.project.pickmyfood.screens.wallet.TopUpFragment"
         android:label="fragment_top_up"
-        tools:layout="@layout/fragment_top_up" />
+        tools:layout="@layout/fragment_top_up"></fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.project.pickmyfood.screens.wallet.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>
