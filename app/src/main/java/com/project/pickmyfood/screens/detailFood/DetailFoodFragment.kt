@@ -3,22 +3,18 @@ package com.project.pickmyfood.screens.detailFood
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.project.pickmyfood.R
 import com.project.pickmyfood.data.cart.viewmodel.CartViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.cart_recycle_view.*
 import kotlinx.android.synthetic.main.fragment_detail_food.*
-import kotlinx.android.synthetic.main.fragment_food_menu_list.*
 
 
 class DetailFoodFragment : Fragment(),View.OnClickListener {
@@ -63,7 +59,7 @@ class DetailFoodFragment : Fragment(),View.OnClickListener {
 //        println("Produc QTY $productQuantity")
 //        val note = foodNote?.text.toString()
 //        println("note $note")
-        var quantity = 0
+        var quantity = 1
         buttonPlus.setOnClickListener {
             quantity++
             quantityFood.text = quantity.toString()

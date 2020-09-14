@@ -133,14 +133,22 @@ class CartFragment : Fragment(),View.OnClickListener {
                 )
                 println(storeID.toString())
                 println(cartViewModel.cartList[0].qty)
-                checkOutViewModel.checkOutOrder(checkOut)
+                if (cartViewModel.cartList.isEmpty()) {
+                    Toast.makeText(
+                        this.context, "Cart Not be null", Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    checkOutViewModel.checkOutOrder(checkOut)
+                }
 
                 checkOutViewModel.checkOutResponseData.observe(viewLifecycleOwner, Observer {
-                    v?.findNavController()?.navigate(R.id.action_cartFragment_to_listCartFragment,
+                    v?.findNavController()?.navigate(
+                        R.id.action_cartFragment_to_listCartFragment,
                         bundleOf(
                             "orderID" to it.orderID,
                             "total" to subtotal
-                        ))
+                        )
+                    )
                 })
 
             }
