@@ -6,14 +6,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.project.pickmyfood.R
+import com.synnapps.carouselview.CarouselView
+import com.synnapps.carouselview.ImageListener
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment(),View.OnClickListener {
     var sharedPreferences: SharedPreferences? = null
+    var sampleImages = intArrayOf(
+        R.drawable.imgslide1,
+        R.drawable.imageslide2,
+        R.drawable.imageslide3
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +29,14 @@ class HomeFragment : Fragment(),View.OnClickListener {
             getString(R.string.shared_preference_name),
             Context.MODE_PRIVATE
         )
+    }
+
+    var imageListener: ImageListener = object : ImageListener {
+        override fun setImageForPosition(position: Int, imageView: ImageView) {
+            // You can use Glide or Picasso here
+            imageView.setImageResource(sampleImages[position])
+            imageView.scaleType = ImageView.ScaleType.FIT_XY
+        }
     }
 
     override fun onCreateView(
@@ -34,7 +50,9 @@ class HomeFragment : Fragment(),View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tukarPoinButton.setOnClickListener(this)
-
+        val carouselView = view.findViewById(R.id.carouselView) as CarouselView
+        carouselView.setImageListener(imageListener)
+        carouselView.pageCount = sampleImages.size
         val userFirstName = sharedPreferences?.getString( // for get sharedPreferences
             getString(R.string.user_firstName),
             getString(R.string.default_value)

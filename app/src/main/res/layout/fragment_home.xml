@@ -128,11 +128,23 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/carouselView"
+            android:layout_width="275dp"
+            android:layout_height="235dp"
+            app:fillColor="#FFFFFFFF"
+            app:pageColor="#00000000"
+            app:radius="6dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/rectangle_8imghome" />
+            app:slideInterval="3000"
+            app:strokeColor="#FF777777"
+            app:strokeWidth="1dp" />
+
+        <!--        <ImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            app:srcCompat="@drawable/rectangle_8imghome" />-->
     </LinearLayout>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView2"
