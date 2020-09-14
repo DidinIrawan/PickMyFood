@@ -61,10 +61,15 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
             getString(R.string.user_poin),
             getString(R.string.default_value)
         )
-        userName.text = "$userFirstname " + " " + "$userLastname"
+        val userAdress = sharedPreferences?.getString(
+            getString(R.string.user_address),
+            getString(R.string.default_value)
+        )
+      userName.text = "$userFirstname " + " " + "$userLastname"
         userTlp.text = "$userPhone"
         profilEmail.text = "$userEmail"
         userPoint.text = "$userPoin"
+        userAdress1.text = "$userAdress"
         Picasso.get().load(imageUser).into(profile_image)
 
     }

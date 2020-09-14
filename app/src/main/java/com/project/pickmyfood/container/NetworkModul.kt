@@ -32,6 +32,10 @@ class NetworkModul {
         return RetrofitBuilder.createRetrofit().create(ProductAPI::class.java)
     }
     @Provides
+    fun provideWalletAPI(): WalletAPI {
+        return RetrofitBuilder.createRetrofit().create(WalletAPI::class.java)
+    }
+    @Provides
     fun provideCheckOutAPI(): CheckOutApi {
         return RetrofitBuilder.createRetrofit().create(CheckOutApi::class.java)
     }
@@ -39,11 +43,6 @@ class NetworkModul {
     @Provides
     fun provideOrderAPI(): OrderAPI {
         return RetrofitBuilder.createRetrofit().create(OrderAPI::class.java)
-    }
-
-    @Provides
-    fun provideWalletAPI(): WalletAPI {
-        return RetrofitBuilder.createRetrofit().create(WalletAPI::class.java)
     }
 
     @Provides
