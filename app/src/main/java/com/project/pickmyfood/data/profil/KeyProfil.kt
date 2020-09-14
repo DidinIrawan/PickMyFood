@@ -7,5 +7,6 @@ class KeyProfil(
     var userAddress: String = "",
     var userPhone: String = "",
     var userPoin: String = "",
-    var userImage: String = ""
+    var userImage: String = "",
+    var userEmail : String =""
 )

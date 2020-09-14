@@ -12,6 +12,7 @@ import com.project.pickmyfood.screens.list.FoodMenuListFragment
 import com.project.pickmyfood.screens.list.RestoListFragment
 import com.project.pickmyfood.screens.login.LoginFragment
 import com.project.pickmyfood.screens.signup.SignUpFragment
+import com.project.pickmyfood.screens.user.UserProfileFragment
 import com.project.pickmyfood.screens.wallet.TopUpFragment
 import dagger.Component
 
@@ -30,4 +31,5 @@ interface ApplicationComponent {
     fun inject(listCartFragment: ListCartFragment)
     fun inject(qRcode: QRcode)
     fun inject(homeFragment: HomeFragment)
+    fun inject(userProfileFragment: UserProfileFragment)
 }

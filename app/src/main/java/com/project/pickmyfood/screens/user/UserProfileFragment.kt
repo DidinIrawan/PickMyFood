@@ -9,15 +9,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.project.pickmyfood.R
+import com.project.pickmyfood.container.MyApplication
+import com.project.pickmyfood.data.profil.ProfilViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_user_profile.*
+import javax.inject.Inject
+import androidx.lifecycle.Observer
 
 
 class UserProfileFragment : Fragment(), View.OnClickListener {
+    @Inject
+    lateinit var profilViewModel: ProfilViewModel
     var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
         sharedPreferences = activity?.getSharedPreferences(
             getString(R.string.shared_preference_name),
             Context.MODE_PRIVATE
@@ -36,41 +44,21 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_Logout.setOnClickListener(this)
-        val imageUser = sharedPreferences?.getString(
-            getString(R.string.user_image),
-            getString(R.string.default_value)
-        )
-        val userFirstname = sharedPreferences?.getString(
-            getString(R.string.user_firstName),
-            getString(R.string.default_value)
-        )
-        val userLastname = sharedPreferences?.getString(
-            getString(R.string.user_lastName),
-            getString(R.string.default_value)
-        )
-        val userEmail = sharedPreferences?.getString(
-            getString(R.string.user_email),
-            getString(R.string.default_value)
-        )
-        val userPhone = sharedPreferences?.getString(
-            getString(R.string.user_phone),
-            getString(R.string.default_value)
-        )
-        val userPoin = sharedPreferences?.getString(
-            getString(R.string.user_poin),
-            getString(R.string.default_value)
-        )
-        val userAdress = sharedPreferences?.getString(
-            getString(R.string.user_address),
-            getString(R.string.default_value)
-        )
 
-      userName.text = "$userFirstname " + " " + "$userLastname"
-        userTlp.text = "$userPhone"
-        profilEmail.text = "$userEmail"
-        userPoint.text = "$userPoin"
-        userAdress1.text = "$userAdress"
-        Picasso.get().load(imageUser).into(profile_image)
+        val userID = sharedPreferences?.getString(
+            getString(R.string.id_key),
+            getString(R.string.default_value)
+        )
+        profilViewModel.profil?.observe(viewLifecycleOwner, Observer {
+            userName.text = it.userFirstName + " " + it.userLastName
+            userPoint.text = it.userPoin
+            userTlp.text = it.userPhone
+            profilEmail.text = it.userEmail
+            userAdress1.text = it.userAddress
+            Picasso.get().load(it.userImage).into(profile_image)
+
+        })
+        profilViewModel.getUserProfil(userID.toString())
 
     }
 
