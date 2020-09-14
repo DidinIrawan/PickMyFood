@@ -39,7 +39,9 @@ class CartRecycleView(
         val foodQuantity = cartList[position].qty
         val productPrice = cartList[position].price
         val productNote = cartList[position].note
+        val productName = cartList[position].productName
         holder.productID.text = productID
+        holder.productName.text = productName
         holder.foodQuantity.text = foodQuantity.toString()
         holder.productPrice.text = productPrice.toString()
         holder.productNote.text = productNote
@@ -63,6 +65,7 @@ class CartRecycleView(
 }
 class CartViewHolder(v:View):RecyclerView.ViewHolder(v) {
     val productID = v.findViewById<TextView>(R.id.idProduct)
+    val productName = v.findViewById<TextView>(R.id.productName)
     val foodQuantity = v.findViewById<TextView>(R.id.foodQuantity)
     val productPrice = v.findViewById<TextView>(R.id.foodPrice)
     val productNote = v.findViewById<TextView>(R.id.foodNote)
