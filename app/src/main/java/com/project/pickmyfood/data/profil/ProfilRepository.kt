@@ -15,10 +15,11 @@ class ProfilRepository @Inject constructor(val profilAPI: ProfilAPI) {
 
         profilAPI.getUserProfil(id).enqueue(object : Callback<Wrapper> {
             override fun onResponse(call: Call<Wrapper>, response: Response<Wrapper>) {
-                val responseData = response.body()
+
                 val response = response.body()
+val res = response?.data
                 val gson = Gson()
-                val stringResponse = gson.toJson(response)
+                val stringResponse = gson.toJson(res)
                 val profilObject = gson.fromJson<KeyProfil>(stringResponse, KeyProfil::class.java)
                 profilUser.value = profilObject
             }

@@ -1,6 +1,7 @@
 package com.project.pickmyfood.screens.cart
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import com.project.pickmyfood.data.order.OrderViewModel
 import com.project.pickmyfood.data.order.adapter.OrderRecycledAdapter
 import com.project.pickmyfood.data.payment.Payment
 import com.project.pickmyfood.data.payment.PaymentViewModel
+import com.project.pickmyfood.screens.qrcode.QRcode
 import kotlinx.android.synthetic.main.fragment_list_cart.*
 import javax.inject.Inject
 
@@ -119,6 +121,12 @@ class ListCartFragment : Fragment(), View.OnClickListener {
                             "total" to total
                         )
                     )
+                    val intent = Intent (requireContext(),QRcode::class.java).apply{
+                        putExtra("orderID",orderID.toString())
+                        putExtra("userID",userID.toString())
+                        putExtra("total",total.toString())
+                    }
+                    startActivity(intent)
                 }
             }
         }

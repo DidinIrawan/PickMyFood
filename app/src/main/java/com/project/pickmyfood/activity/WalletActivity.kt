@@ -3,6 +3,7 @@ package com.project.pickmyfood.activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -11,6 +12,7 @@ import androidx.navigation.ui.NavigationUI
 import com.project.pickmyfood.R
 import com.project.pickmyfood.container.MyApplication
 import com.project.pickmyfood.data.wallet.WalletViewModel
+import kotlinx.android.synthetic.main.activity_qr_code.*
 import kotlinx.android.synthetic.main.activity_wallet.*
 import javax.inject.Inject
 
@@ -69,4 +71,6 @@ class WalletActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {
         }
     }
+
+
 }

@@ -36,7 +36,6 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_Logout.setOnClickListener(this)
-
         val imageUser = sharedPreferences?.getString(
             getString(R.string.user_image),
             getString(R.string.default_value)
@@ -65,6 +64,7 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
             getString(R.string.user_address),
             getString(R.string.default_value)
         )
+
       userName.text = "$userFirstname " + " " + "$userLastname"
         userTlp.text = "$userPhone"
         profilEmail.text = "$userEmail"
