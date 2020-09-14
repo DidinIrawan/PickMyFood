@@ -3,6 +3,7 @@ package com.project.pickmyfood.container
 import com.project.pickmyfood.config.RetrofitBuilder
 import com.project.pickmyfood.data.checkout.CheckOutApi
 import com.project.pickmyfood.data.order.OrderAPI
+import com.project.pickmyfood.data.payment.PaymentAPI
 import com.project.pickmyfood.data.product.ProductAPI
 import com.project.pickmyfood.data.store.StoreAPI
 import com.project.pickmyfood.data.user.api.UserLoginAPI
@@ -43,5 +44,10 @@ class NetworkModul {
     @Provides
     fun provideWalletAPI(): WalletAPI {
         return RetrofitBuilder.createRetrofit().create(WalletAPI::class.java)
+    }
+
+    @Provides
+    fun providePaymentAPI(): PaymentAPI {
+        return RetrofitBuilder.createRetrofit().create(PaymentAPI::class.java)
     }
 }
