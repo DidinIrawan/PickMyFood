@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.project.pickmyfood.R
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_user_profile.*
 
 
@@ -36,6 +37,10 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         btn_Logout.setOnClickListener(this)
 
+        val imageUser = sharedPreferences?.getString(
+            getString(R.string.user_image),
+            getString(R.string.default_value)
+        )
         val userFirstname = sharedPreferences?.getString(
             getString(R.string.user_firstName),
             getString(R.string.default_value)
@@ -60,6 +65,7 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
         userTlp.text = "$userPhone"
         profilEmail.text = "$userEmail"
         userPoint.text = "$userPoin"
+        Picasso.get().load(imageUser).into(profile_image)
 
     }
 

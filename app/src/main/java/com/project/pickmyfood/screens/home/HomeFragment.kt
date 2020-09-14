@@ -39,7 +39,12 @@ class HomeFragment : Fragment(),View.OnClickListener {
             getString(R.string.user_firstName),
             getString(R.string.default_value)
         )
+        val poin = sharedPreferences?.getString( // for get sharedPreferences
+            getString(R.string.user_poin),
+            getString(R.string.default_value)
+        )
         menuHomeText.text = "Hi, $userFirstName"
+        point.text = "$poin Point"
     }
 
     override fun onClick(v: View?) {
