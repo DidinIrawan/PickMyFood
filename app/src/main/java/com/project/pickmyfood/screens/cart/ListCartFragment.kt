@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.pickmyfood.R
 import com.project.pickmyfood.container.MyApplication
@@ -23,6 +25,8 @@ import javax.inject.Inject
 class ListCartFragment : Fragment(), View.OnClickListener {
     @Inject
     lateinit var orderViewModel: OrderViewModel
+
+    @Inject
     lateinit var paymentViewModel: PaymentViewModel
 
     //    lateinit var checkOutViewModel: CheckOutViewModel
@@ -107,12 +111,14 @@ class ListCartFragment : Fragment(), View.OnClickListener {
                     Toast.makeText(
                         this.context, "Payment Success :)", Toast.LENGTH_SHORT
                     ).show()
-//                    v?.findNavController()?.navigate(R.id.,
-//                        bundleOf(
-//                            "orderID" to it.orderID,
-//
-//                        )
-//                    )
+                    v?.findNavController()?.navigate(
+                        R.id.action_global_to_qrcode,
+                        bundleOf(
+                            "orderID" to orderID,
+                            "userID" to userID,
+                            "total" to total
+                        )
+                    )
                 }
             }
         }
