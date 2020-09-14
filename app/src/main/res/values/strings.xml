@@ -37,6 +37,11 @@
     <string name="store_id">Store ID :</string>
     <string name="store_value">Store ID</string>
     <string name="button_pay">Pay</string>
+    <string name="button_rating">Add Rating</string>
+    <string name="rating_description">Rating Description</string>
+    <string name="user_id">User ID :</string>
+    <string name="storeId_rating">Store ID</string>
+    <string name="userId_rating">User ID</string>
 
     <string name="order_key">ORDERID</string>
     <string name="order_created">ORDER_CREATED</string>
@@ -50,4 +55,8 @@
     <string name="checkout_method_key">CHECKOUT_METHOD</string>
     <string name="authority_key">com.project.pickmyfood.fileprovider</string>
     <string name="shared_preference_name">com.project.shared.preference</string>
+
+    <color name="colorGolden">#ffbf00</color>
+    <color name="colorGray">#AAA3A3</color>
+
 </resources>

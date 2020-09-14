@@ -5,6 +5,7 @@ import com.project.pickmyfood.data.checkout.CheckOutApi
 import com.project.pickmyfood.data.order.OrderAPI
 import com.project.pickmyfood.data.payment.PaymentAPI
 import com.project.pickmyfood.data.product.ProductAPI
+import com.project.pickmyfood.data.rating.RatingAPI
 import com.project.pickmyfood.data.store.StoreAPI
 import com.project.pickmyfood.data.user.api.UserLoginAPI
 import com.project.pickmyfood.data.user.api.UserRegisterAPI
@@ -48,5 +49,10 @@ class NetworkModul {
     @Provides
     fun providePaymentAPI(): PaymentAPI {
         return RetrofitBuilder.createRetrofit().create(PaymentAPI::class.java)
+    }
+
+    @Provides
+    fun provideRatingAPI(): RatingAPI {
+        return RetrofitBuilder.createRetrofit().create(RatingAPI::class.java)
     }
 }
