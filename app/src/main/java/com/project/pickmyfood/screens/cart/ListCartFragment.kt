@@ -82,6 +82,7 @@ class ListCartFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             button_pay -> {
+                val storeID = arguments?.getString("storeID")
                 val orderID = arguments?.getString("orderID")
 
                 val amountUser = sharedPreferences?.getString( // for get sharedPreferences
@@ -116,6 +117,7 @@ class ListCartFragment : Fragment(), View.OnClickListener {
                     v?.findNavController()?.navigate(
                         R.id.action_global_to_qrcode,
                         bundleOf(
+                            "storeID" to storeID,
                             "orderID" to orderID,
                             "userID" to userID,
                             "total" to total

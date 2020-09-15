@@ -5,7 +5,7 @@ class KeyStore(
     var storeName: String = "",
 //    var store_category_id :String ="",
     var storeAddress: String = "",
-//    var store_owner :String ="",
+    var storeOwner: String = "",
 //    var store_status :String ="",
 //    var store_password :String ="",
     var storeImage: String = ""

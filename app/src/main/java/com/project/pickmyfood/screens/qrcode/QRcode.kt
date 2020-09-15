@@ -9,11 +9,9 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import com.google.zxing.Result
 import com.project.pickmyfood.R
 import com.project.pickmyfood.activity.HomeActivity
-import com.project.pickmyfood.activity.MainActivity
 import com.project.pickmyfood.container.MyApplication
 import com.project.pickmyfood.data.pick.PickViewModel
 import kotlinx.android.synthetic.main.activity_qr_code.*
@@ -27,6 +25,7 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
     private lateinit var mScannerView: ZXingScannerView
     var sharedPreferences: SharedPreferences? = null
 
+    //    lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_code)
@@ -37,6 +36,12 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
             getString(R.string.shared_preference_name),
             Context.MODE_PRIVATE
         )
+//        btnDone.setOnClickListener {
+//            var storeID = intent?.getStringExtra("storeID").toString()
+//            navController.navigate(R.id.action_global_to_ratingFragment, bundleOf(
+//                "storeID" to storeID
+//            ))
+//        }
 
         btnDone.setOnClickListener(this)
 //        val orderID = intent?.getStringExtra("orderID").toString()
@@ -116,13 +121,17 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
         frame_layout_camera.visibility = View.GONE
     }
 
+
     override fun onClick(view: View?) {
         when (view) {
-btnDone -> {
-    val intent = Intent(this,HomeActivity::class.java)
-    startActivity(intent)
-//view?.findNavController()?.navigate(R.id.action_global_to_restoListFragment)
-}
+            btnDone -> {
+//                var storeID = intent?.getStringExtra("storeID").toString()
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+//                view?.findNavController()?.navigate(R.id.action_global_to_ratingFragment, bundleOf(
+//                    "storeID" to storeID
+//                ))
+            }
             else -> {
                 /* nothing to do in here */
             }

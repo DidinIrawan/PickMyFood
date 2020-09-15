@@ -3,7 +3,6 @@ package com.project.pickmyfood.activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -12,7 +11,7 @@ import androidx.navigation.ui.NavigationUI
 import com.project.pickmyfood.R
 import com.project.pickmyfood.container.MyApplication
 import com.project.pickmyfood.data.wallet.WalletViewModel
-import kotlinx.android.synthetic.main.activity_qr_code.*
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_wallet.*
 import javax.inject.Inject
 
@@ -37,6 +36,11 @@ class WalletActivity : AppCompatActivity() {
             getString(R.string.user_firstName),
             getString(R.string.default_value)
         )
+        val userImage = sharedPreferences?.getString(
+            getString(R.string.user_image),
+            getString(R.string.default_value)
+        )
+        Picasso.get().load(userImage).into(imageProfile)
         nameUser.text = userFirstName.toString()
         val userID = sharedPreferences?.getString(
             getString(R.string.id_key),

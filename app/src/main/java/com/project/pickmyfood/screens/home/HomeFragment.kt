@@ -8,16 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.project.pickmyfood.R
-import com.synnapps.carouselview.CarouselView
-import com.synnapps.carouselview.ImageListener
 import com.project.pickmyfood.container.MyApplication
 import com.project.pickmyfood.data.profil.ProfilViewModel
-import kotlinx.android.synthetic.main.activity_wallet.*
+import com.squareup.picasso.Picasso
+import com.synnapps.carouselview.CarouselView
+import com.synnapps.carouselview.ImageListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
-import androidx.lifecycle.Observer
 
 
 class HomeFragment : Fragment(),View.OnClickListener {
@@ -69,13 +69,18 @@ class HomeFragment : Fragment(),View.OnClickListener {
             getString(R.string.id_key),
             getString(R.string.default_value)
         )
-
+        val userImage = sharedPreferences?.getString(
+            getString(R.string.user_image),
+            getString(R.string.default_value)
+        )
+//        pbOrderActive.visibility = View.GONE
+        Picasso.get().load(userImage).into(imageProfile)
         menuHomeText.text = "Hi, $userFirstName"
         profilViewModel.profil?.observe(viewLifecycleOwner, Observer {
-           point.text = it.userPoin
+            point.text = it.userPoin
         })
         println("USER ID YANG DI HOME $userID")
-profilViewModel.getUserProfil(userID.toString())
+        profilViewModel.getUserProfil(userID.toString())
 
     }
 

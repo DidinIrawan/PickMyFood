@@ -31,6 +31,7 @@ class StoreRecycleAdapter(
         val nameResto = storeList[position].storeName
         val addressResto = storeList[position].storeAddress
         val idResto = storeList[position].storeID
+        val storeOwner = storeList[position].storeOwner
         Picasso.get().load(storeImage).into(holder.imageResto)
         holder.nameResto.text = storeList[position].storeName
         holder.adressResto.text = storeList[position].storeAddress
@@ -42,7 +43,8 @@ class StoreRecycleAdapter(
                     "imageResto" to storeImage,
                     "nameResto" to nameResto,
                     "addressResto" to addressResto,
-                    "storeID" to idResto
+                    "storeID" to idResto,
+                    "storeOwner" to storeOwner
                 ))
         }
     }

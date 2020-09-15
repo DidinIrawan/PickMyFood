@@ -145,6 +145,7 @@ class CartFragment : Fragment(),View.OnClickListener {
                     v?.findNavController()?.navigate(
                         R.id.action_cartFragment_to_listCartFragment,
                         bundleOf(
+                            "storeID" to storeID,
                             "orderID" to it.orderID,
                             "total" to subtotal
                         )

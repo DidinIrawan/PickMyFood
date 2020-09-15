@@ -6,36 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.project.pickmyfood.R
-import com.project.pickmyfood.container.MyApplication
-import com.project.pickmyfood.data.product.ProductViewModel
-import com.project.pickmyfood.data.product.adapter.ProductRecycledApter
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_food_menu_list.*
-import javax.inject.Inject
+import kotlinx.android.synthetic.main.fragment_resto_profile.*
 
 
-class FoodMenuListFragment : Fragment(),View.OnClickListener {
-    @Inject
-    lateinit var productViewModel: ProductViewModel
-
-    lateinit var productRecycledApter: ProductRecycledApter
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
-    }
+class RestoProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food_menu_list, container, false)
+        return inflater.inflate(R.layout.fragment_resto_profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,32 +28,25 @@ class FoodMenuListFragment : Fragment(),View.OnClickListener {
         val restoName = arguments?.getString("nameResto")
         val restoAddress = arguments?.getString("addressResto")
         val storeId = arguments?.getString("storeID")
+        val storeOwner = arguments?.getString("storeOwner")
         println("ID Store1 ${storeId}")
 
         nameRestoText.text = "${restoName.toString()}"
         addressRestoText.text = "${restoAddress.toString()}"
         Picasso.get().load(restoImage).into(profile_image)
 
-        productListRecycleView.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        productViewModel.product?.observe(viewLifecycleOwner, Observer {
-            productRecycledApter = ProductRecycledApter(it, activity,storeId.toString())//kirim value ke recycleView
-            productListRecycleView.adapter = productRecycledApter
-        })
-        productViewModel.getAllProductByIdStore(storeId.toString())
-//        productListRecycleView.layoutManager = LinearLayoutManager(activity)
-//        productViewModel.product?.observe(viewLifecycleOwner, Observer {
-//            productRecycledApter = ProductRecycledApter(it, activity)
-//            productListRecycleView.adapter = productRecycledApter
-//        })
-//        productViewModel.getAllProductByIdStore(storeId.toString())
+        storeName.text = "${restoName.toString()}"
+        storeAddress.text = "${restoAddress.toString()}"
+        storeOwnerText.text = "${storeOwner.toString()}"
+
         cartIcon.setOnClickListener(this)
         addRating.setOnClickListener(this)
-        restoProfile.setOnClickListener(this)
+        restoMenuText.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v) {
-            restoProfile -> {
+            restoMenuText -> {
                 val storeId = arguments?.getString("storeID")
                 val restoImage = arguments?.getString("imageResto")
                 val restoName = arguments?.getString("nameResto")
@@ -77,7 +54,7 @@ class FoodMenuListFragment : Fragment(),View.OnClickListener {
                 val storeOwner = arguments?.getString("storeOwner")
 
                 v?.findNavController()?.navigate(
-                    R.id.action_foodMenuListFragment_to_restoProfileFragment, bundleOf(
+                    R.id.action_restoListFragment_to_foodMenuListFragment, bundleOf(
                         "storeID" to storeId,
                         "imageResto" to restoImage,
                         "nameResto" to restoName,

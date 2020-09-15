@@ -1,6 +1,5 @@
 package com.project.pickmyfood.container
 
-import com.project.pickmyfood.screens.qrcode.QRcode
 import com.project.pickmyfood.activity.MainActivity
 import com.project.pickmyfood.activity.WalletActivity
 import com.project.pickmyfood.screens.cart.CartFragment
@@ -10,6 +9,7 @@ import com.project.pickmyfood.screens.list.FoodListFragment
 import com.project.pickmyfood.screens.list.FoodMenuListFragment
 import com.project.pickmyfood.screens.list.RestoListFragment
 import com.project.pickmyfood.screens.login.LoginFragment
+import com.project.pickmyfood.screens.qrcode.QRcode
 import com.project.pickmyfood.screens.rating.RatingFragment
 import com.project.pickmyfood.screens.signup.SignUpFragment
 import com.project.pickmyfood.screens.wallet.TopUpFragment
@@ -31,4 +31,5 @@ interface ApplicationComponent {
     fun inject(ratingFragment: RatingFragment)
     fun inject(qRcode: QRcode)
     fun inject(homeFragment: HomeFragment)
+//    fun inject(restoProfileFragment: RestoProfileFragment)
 }

@@ -38,6 +38,9 @@
         android:id="@+id/action_restoListFragment_to_foodMenuListFragment"
         app:destination="@id/foodMenuListFragment" />
     <action
+        android:id="@+id/action_foodMenuListFragment_to_restoProfileFragment"
+        app:destination="@id/restoProfileFragment" />
+    <action
         android:id="@+id/action_global_to_detailFoodFragment"
         app:destination="@id/detailFoodFragment" />
     <action
@@ -46,11 +49,14 @@
     <action
         android:id="@+id/action_cartFragment_to_listCartFragment"
         app:destination="@id/listCartFragment" />
+    <action
+        android:id="@+id/action_global_to_ratingFragment"
+        app:destination="@id/ratingFragment" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.project.pickmyfood.screens.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
 
     </fragment>
 
@@ -82,7 +88,7 @@
         android:id="@+id/foodMenuListFragment"
         android:name="com.project.pickmyfood.screens.list.FoodMenuListFragment"
         android:label="fragment_food_menu_list"
-        tools:layout="@layout/fragment_food_menu_list" />
+        tools:layout="@layout/fragment_food_menu_list"></fragment>
     <fragment
         android:id="@+id/detailFoodFragment"
         android:name="com.project.pickmyfood.screens.detailFood.DetailFoodFragment"
@@ -110,11 +116,20 @@
         android:id="@+id/cartFragment"
         android:name="com.project.pickmyfood.screens.cart.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" >
-    </fragment>
+        tools:layout="@layout/fragment_cart"></fragment>
     <fragment
         android:id="@+id/listCartFragment"
         android:name="com.project.pickmyfood.screens.cart.ListCartFragment"
         android:label="fragment_list_cart"
         tools:layout="@layout/fragment_list_cart" />
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.project.pickmyfood.screens.rating.RatingFragment"
+        android:label="fragment_rating"
+        tools:layout="@layout/fragment_rating" />
+    <fragment
+        android:id="@+id/restoProfileFragment"
+        android:name="com.project.pickmyfood.screens.list.RestoProfileFragment"
+        android:label="fragment_resto_profile"
+        tools:layout="@layout/fragment_resto_profile" />
 </navigation>
