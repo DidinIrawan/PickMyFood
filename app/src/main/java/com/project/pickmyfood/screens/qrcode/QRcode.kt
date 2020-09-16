@@ -9,12 +9,16 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.google.zxing.Result
 import com.project.pickmyfood.R
 import com.project.pickmyfood.activity.HomeActivity
+import com.project.pickmyfood.activity.MainActivity
 import com.project.pickmyfood.container.MyApplication
 import com.project.pickmyfood.data.pick.PickViewModel
 import kotlinx.android.synthetic.main.activity_qr_code.*
+import kotlinx.android.synthetic.main.activity_wallet.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import javax.inject.Inject
 
@@ -25,7 +29,6 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
     private lateinit var mScannerView: ZXingScannerView
     var sharedPreferences: SharedPreferences? = null
 
-    //    lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_code)
@@ -36,18 +39,8 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
             getString(R.string.shared_preference_name),
             Context.MODE_PRIVATE
         )
-//        btnDone.setOnClickListener {
-//            var storeID = intent?.getStringExtra("storeID").toString()
-//            navController.navigate(R.id.action_global_to_ratingFragment, bundleOf(
-//                "storeID" to storeID
-//            ))
-//        }
-
+        btnScan.setOnClickListener(this)
         btnDone.setOnClickListener(this)
-//        val orderID = intent?.getStringExtra("orderID").toString()
-//        println("ini id order di qr $orderID")
-//        var amount = intent?.getStringExtra("amount").toString()
-//        var userID = intent?.getStringExtra("amount").toString()
     }
 
     private fun initScannerView() {
@@ -95,11 +88,13 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
     private fun initDefaultView() {
         text_view_qr_code_value.text = " "
         btnDone.visibility = View.GONE
+        btnScan.visibility = View.GONE
         alignQR.visibility = View.VISIBLE
         frame_layout_camera.visibility = View.VISIBLE
     }
 
     override fun handleResult(rawResult: Result?) {
+
         val amountUser = sharedPreferences?.getString( // for get sharedPreferences
             getString(R.string.user_amount),
             getString(R.string.default_value)
@@ -107,31 +102,43 @@ class QRcode : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClick
         val orderID = intent?.getStringExtra("orderID").toString()
         var total = intent?.getStringExtra("total").toString()
         var userID = intent?.getStringExtra("userID").toString()
-//        text_view_qr_code_value.text = "hasil scan storeID" + rawResult?.text + "ini id order $orderID" + "ini amount $amountUser" + "ini user id $userID"
-        text_view_qr_code_value.text = "Picked Up Succesfully"
-        println("stroreID=$rawResult&amount=$amountUser&orderID=$orderID&userID=$userID")
+
+
         pickViewModel.pickMyFood(
             rawResult.toString(),
             amountUser.toString(),
             orderID,
-            userID)
+            userID
+        )
 
-        btnDone.visibility = View.VISIBLE
+        pickViewModel.statusCode?.observe(this, Observer {
+            if (it.message == "Success") {
+                text_view_qr_code_value.text = "Picked Up Succesfully"
+                btnDone.visibility = View.VISIBLE
+                btnScan.visibility = View.GONE
+            } else  {
+                text_view_qr_code_value.text = "Not Valid"
+                btnScan.visibility = View.VISIBLE
+                btnDone.visibility = View.GONE
+            }
+        })
+
+
+
         alignQR.visibility = View.GONE
         frame_layout_camera.visibility = View.GONE
     }
 
-
     override fun onClick(view: View?) {
         when (view) {
-            btnDone -> {
-//                var storeID = intent?.getStringExtra("storeID").toString()
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
-//                view?.findNavController()?.navigate(R.id.action_global_to_ratingFragment, bundleOf(
-//                    "storeID" to storeID
-//                ))
-            }
+btnDone -> {
+    val intent = Intent(this,HomeActivity::class.java)
+    startActivity(intent)
+
+} btnScan->{
+            mScannerView.resumeCameraPreview(this)
+            initDefaultView()
+        }
             else -> {
                 /* nothing to do in here */
             }
