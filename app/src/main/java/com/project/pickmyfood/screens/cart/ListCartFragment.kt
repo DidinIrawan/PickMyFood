@@ -1,7 +1,6 @@
 package com.project.pickmyfood.screens.cart
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +19,6 @@ import com.project.pickmyfood.data.order.adapter.OrderRecycledAdapter
 import com.project.pickmyfood.data.payment.Payment
 import com.project.pickmyfood.data.payment.PaymentViewModel
 import com.project.pickmyfood.data.wallet.WalletViewModel
-import com.project.pickmyfood.screens.qrcode.QRcode
 import kotlinx.android.synthetic.main.fragment_list_cart.*
 import javax.inject.Inject
 
@@ -115,7 +113,7 @@ class ListCartFragment : Fragment(), View.OnClickListener {
                             this.context, "Payment Success :)", Toast.LENGTH_SHORT
                         ).show()
                         v?.findNavController()?.navigate(
-                            R.id.action_global_to_qrcode,
+                            R.id.action_global_to_orderListFragment,
                             bundleOf(
                                 "storeID" to storeID,
                                 "orderID" to orderID,
@@ -123,12 +121,12 @@ class ListCartFragment : Fragment(), View.OnClickListener {
                                 "total" to total
                             )
                         )
-                        val intent = Intent(requireContext(), QRcode::class.java).apply {
-                            putExtra("orderID", orderID.toString())
-                            putExtra("userID", userID.toString())
-                            putExtra("total", total.toString())
-                        }
-                        startActivity(intent)
+//                        val intent = Intent(requireContext(), QRcode::class.java).apply {
+//                            putExtra("orderID", orderID.toString())
+//                            putExtra("userID", userID.toString())
+//                            putExtra("total", total.toString())
+//                        }
+//                        startActivity(intent)
                     }
                 })
                 walletViewModel.getWalletByID(userID.toString())

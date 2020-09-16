@@ -3,8 +3,11 @@ package com.project.pickmyfood.data.orderlist.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.project.pickmyfood.R
 import com.project.pickmyfood.data.orderlist.OrderList
@@ -38,6 +41,16 @@ class OrderListRecycleAdapter(
         holder.amountOrder.text = orderLists[position].amount
         holder.transactionCreated.text = orderLists[position].transactionCreated
         holder.transactionStatus.text = orderLists[position].transactionStatus
+        holder.button_pick.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(
+                    R.id.action_global_to_qrcode, bundleOf(
+                        "orderID" to orderID,
+                        "userID" to userID,
+                        "total" to amount
+                    )
+                )
+        }
     }
 
 }
@@ -50,4 +63,6 @@ class OrderListViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val amountOrder = v.findViewById<TextView>(R.id.amountOrder)
     val transactionCreated = v.findViewById<TextView>(R.id.transactionCreatedText)
     val transactionStatus = v.findViewById<TextView>(R.id.transactionStatusText)
+
+    val button_pick = v.findViewById<Button>(R.id.buttonPick)
 }
