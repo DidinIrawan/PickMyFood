@@ -29,6 +29,7 @@
     <string name="total">0</string>
     <string name="note">Note</string>
     <string name="list_cart">List Cart</string>
+    <string name="order_list">Order List</string>
     <string name="date">Date :</string>
     <string name="date_created">Order Date</string>
     <string name="total_order">Total :</string>

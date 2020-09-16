@@ -29,6 +29,7 @@
                     android:id="@+id/imageFood"
                     android:layout_width="80dp"
                     android:layout_height="50dp"
+                    android:background="@drawable/product_image"
                     android:scaleType="fitXY" />
             </LinearLayout>
 

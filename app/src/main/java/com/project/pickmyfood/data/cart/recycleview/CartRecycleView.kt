@@ -5,17 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.project.pickmyfood.R
 import com.project.pickmyfood.data.cart.classes.Cart
 import com.project.pickmyfood.data.cart.viewmodel.CartViewModel
-import kotlinx.android.synthetic.main.cart_recycle_view.view.*
-import kotlinx.android.synthetic.main.fragment_cart.*
-import org.w3c.dom.Text
-import javax.inject.Inject
-import kotlin.coroutines.EmptyCoroutineContext
 
 class CartRecycleView(
     private val cartList: MutableList<Cart>,
@@ -53,12 +46,12 @@ class CartRecycleView(
             cartViewModel.removeCart(position)
         }
 
-        var subtotal:Int = 0
+        var subtotal = 0
         for (i in cartViewModel.cartList.indices){
             println("cartlist : ${cartViewModel.cartList[i].price}")
             subtotal += (cartViewModel.cartList[i].price.toInt())
         }
-        totalPrice.text = "Rp. ${subtotal.toString()}"
+        totalPrice.text = "Rp. $subtotal"
     }
 
 

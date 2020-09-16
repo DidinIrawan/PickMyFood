@@ -3,31 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/firstScreenFragment">
     <action
-        android:id="@+id/action_to_loginFragment"
-        app:destination="@+id/loginFragment"/>
-    <action
-        android:id="@+id/action_loginFragment_to_signUpFragment"
-        app:destination="@id/signUpFragment" />
-    <action
-        android:id="@+id/action_loginFragment_to_homeActivity"
-        app:destination="@id/homeActivity" />
+        android:id="@+id/action_firstScreenFragment_to_secondActivity"
+        app:destination="@id/secondActivity" />
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.project.pickmyfood.screens.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:id="@+id/firstScreenFragment"
+        android:name="com.project.pickmyfood.screens.FirstScreenFragment"
+        android:label="fragment_first_screen"
+        tools:layout="@layout/fragment_first_screen">
 
     </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.project.pickmyfood.screens.signup.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
     <activity
-        android:id="@+id/homeActivity"
-        android:name="com.project.pickmyfood.activity.HomeActivity"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home" />
+        android:id="@+id/secondActivity"
+        android:name="com.project.pickmyfood.activity.SecondActivity"
+        android:label="activity_second"
+        tools:layout="@layout/activity_second" />
+    <!--    <fragment-->
+    <!--        android:id="@+id/loginFragment"-->
+    <!--        android:name="com.project.pickmyfood.screens.login.LoginFragment"-->
+    <!--        android:label="fragment_login"-->
+    <!--        tools:layout="@layout/fragment_login" >-->
+
+    <!--    </fragment>-->
 </navigation>

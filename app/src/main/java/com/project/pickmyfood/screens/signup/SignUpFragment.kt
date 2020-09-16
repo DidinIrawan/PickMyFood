@@ -1,11 +1,11 @@
 package com.project.pickmyfood.screens.signup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.project.pickmyfood.R
@@ -47,8 +47,8 @@ class SignUpFragment : Fragment(), View.OnClickListener {
                     this.context,"Username or name already registered", Toast.LENGTH_SHORT
                 ).show()
             }else{
-                Toast.makeText(this.context, "Create Account is success",Toast.LENGTH_SHORT).show()
-                navController.navigate(R.id.action_to_loginFragment)
+                Toast.makeText(this.context, "Create Account is success", Toast.LENGTH_SHORT).show()
+                navController.navigate(R.id.action_signUpFragment_to_loginFragment)
             }
         })
     }
@@ -56,7 +56,7 @@ class SignUpFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             userRegisterToLoginText -> {
-                navController.navigate(R.id.action_to_loginFragment)
+                navController.navigate(R.id.action_signUpFragment_to_loginFragment)
             }
             userRegisterButton ->{
 //                val userRegisterAuth = UserRegisterAuth(

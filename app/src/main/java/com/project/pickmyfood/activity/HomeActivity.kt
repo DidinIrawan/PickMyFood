@@ -44,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.pickMenu -> {
-                    navController.navigate(R.id.action_global_to_qrcode)
+                    navController.navigate(R.id.action_global_to_orderListFragment)
                     true
                 }
                 else -> {

@@ -19,6 +19,7 @@ import com.project.pickmyfood.data.order.OrderViewModel
 import com.project.pickmyfood.data.order.adapter.OrderRecycledAdapter
 import com.project.pickmyfood.data.payment.Payment
 import com.project.pickmyfood.data.payment.PaymentViewModel
+import com.project.pickmyfood.data.wallet.WalletViewModel
 import com.project.pickmyfood.screens.qrcode.QRcode
 import kotlinx.android.synthetic.main.fragment_list_cart.*
 import javax.inject.Inject
@@ -30,6 +31,9 @@ class ListCartFragment : Fragment(), View.OnClickListener {
 
     @Inject
     lateinit var paymentViewModel: PaymentViewModel
+
+    @Inject
+    lateinit var walletViewModel: WalletViewModel
 
     //    lateinit var checkOutViewModel: CheckOutViewModel
     lateinit var orderRecycledAdapter: OrderRecycledAdapter
@@ -82,54 +86,59 @@ class ListCartFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             button_pay -> {
-                val storeID = arguments?.getString("storeID")
-                val orderID = arguments?.getString("orderID")
-
-                val amountUser = sharedPreferences?.getString( // for get sharedPreferences
-                    getString(R.string.user_amount),
-                    getString(R.string.default_value)
-                )
                 val userID = sharedPreferences?.getString( // for get sharedPreferences
                     getString(R.string.id_key),
                     getString(R.string.default_value)
                 )
-                val amount = amountUser?.toInt()
-                println("Total amaunt $amount")
+                val storeID = arguments?.getString("storeID")
+                val orderID = arguments?.getString("orderID")
+                walletViewModel.wallet.observe(this, Observer {
+                    val amount = it.amount.toInt()
+                    println("Total amaunt $amount")
 
-                val total = arguments?.getInt("total")
-                println("Total List $total")
+                    val total = arguments?.getInt("total")
+                    println("Total List $total")
 //
-                if (total!! > amount!!) {
-                    Toast.makeText(
-                        this.context, "Ammount Kurang dari Total", Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    paymentViewModel.paymentOrder(
-                        payment = Payment(
-                            orderID.toString(),
-                            userID.toString(),
-                            total.toString()
+                    if (total!! > amount) {
+                        Toast.makeText(
+                            this.context, "Ammount Kurang dari Total", Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        paymentViewModel.paymentOrder(
+                            payment = Payment(
+                                orderID.toString(),
+                                userID.toString(),
+                                total.toString()
+                            )
                         )
-                    )
-                    Toast.makeText(
-                        this.context, "Payment Success :)", Toast.LENGTH_SHORT
-                    ).show()
-                    v?.findNavController()?.navigate(
-                        R.id.action_global_to_qrcode,
-                        bundleOf(
-                            "storeID" to storeID,
-                            "orderID" to orderID,
-                            "userID" to userID,
-                            "total" to total
+                        Toast.makeText(
+                            this.context, "Payment Success :)", Toast.LENGTH_SHORT
+                        ).show()
+                        v?.findNavController()?.navigate(
+                            R.id.action_global_to_qrcode,
+                            bundleOf(
+                                "storeID" to storeID,
+                                "orderID" to orderID,
+                                "userID" to userID,
+                                "total" to total
+                            )
                         )
-                    )
-                    val intent = Intent (requireContext(),QRcode::class.java).apply{
-                        putExtra("orderID",orderID.toString())
-                        putExtra("userID",userID.toString())
-                        putExtra("total",total.toString())
+                        val intent = Intent(requireContext(), QRcode::class.java).apply {
+                            putExtra("orderID", orderID.toString())
+                            putExtra("userID", userID.toString())
+                            putExtra("total", total.toString())
+                        }
+                        startActivity(intent)
                     }
-                    startActivity(intent)
-                }
+                })
+                walletViewModel.getWalletByID(userID.toString())
+//                val amountUser = sharedPreferences?.getString( // for get sharedPreferences
+//                    getString(R.string.user_amount),
+//                    getString(R.string.default_value)
+//                )
+
+//                val amount = amountUser?.toInt()
+
             }
         }
     }

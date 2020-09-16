@@ -60,14 +60,21 @@ class DetailFoodFragment : Fragment(),View.OnClickListener {
 //        val note = foodNote?.text.toString()
 //        println("note $note")
         var quantity = 1
+
+        buttonMinus.isEnabled = true
+        buttonMinus.setOnClickListener {
+            if (quantity > 1) {
+                quantity--
+                quantityFood.text = quantity.toString()
+            }
+        }
+
         buttonPlus.setOnClickListener {
+
             quantity++
             quantityFood.text = quantity.toString()
         }
-        buttonMinus.setOnClickListener {
-            quantity--
-            quantityFood.text = quantity.toString()
-        }
+
 
     }
 
@@ -89,14 +96,32 @@ class DetailFoodFragment : Fragment(),View.OnClickListener {
 
             buttonCart -> {
                 val storeId = arguments?.getString("storeID")
+                val foodQuantity = quantityFood.text.toString()
+                val productStock = arguments?.getString("productStock")
+
                 println("productName $nameProduct")
+                println("productStock $productStock")
                 println("Button Cart $storeId")
-                cartViewModel.addCartList(foodQuantity,productID.toString(),nameProduct.toString(),userID.toString(),priceTotal.toString(),note)
-                Toast.makeText(activity, "Added to cart", Toast.LENGTH_SHORT).show()
-                v?.findNavController()?.navigate(R.id.action_detailFoodFragment_to_cartFragment, bundleOf(
-                    "storeID" to storeId,
-                    "nameProduct" to nameProduct
-                ))
+                if (productStock!! < foodQuantity) {
+                    Toast.makeText(activity, "Out of Stock", Toast.LENGTH_SHORT).show()
+                } else {
+                    cartViewModel.addCartList(
+                        foodQuantity,
+                        productID.toString(),
+                        nameProduct.toString(),
+                        userID.toString(),
+                        priceTotal.toString(),
+                        note
+                    )
+                    Toast.makeText(activity, "Added to cart", Toast.LENGTH_SHORT).show()
+                    v?.findNavController()?.navigate(
+                        R.id.action_detailFoodFragment_to_cartFragment, bundleOf(
+                            "storeID" to storeId,
+                            "nameProduct" to nameProduct
+                        )
+                    )
+                }
+
             }
         }
     }

@@ -23,6 +23,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
 
@@ -34,22 +36,52 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/productNameDetail"
+                        android:id="@+id/transactionIDText"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:text="Food Name"
+                        android:text="Transaction ID"
                         android:textColor="#FFFFFF"
-                        android:textSize="20dp" />
+                        android:textSize="15dp" />
 
                     <TextView
-                        android:id="@+id/priceFood"
+                        android:id="@+id/amountOrder"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:text="Price"
+                        android:text="Amount"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/userFirstNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="Name"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/transactionCreatedText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="Date and Time"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/transactionStatusText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="Status"
                         android:textColor="#FFFFFF"
                         android:textSize="15dp" />
 
@@ -60,14 +92,16 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4">
 
-                    <TextView
-                        android:id="@+id/qty"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonPick"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="qty"
-                        android:textColor="#FFFFFF"
-                        android:textSize="17dp" />
+                        android:layout_marginRight="8dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:text="Pick"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

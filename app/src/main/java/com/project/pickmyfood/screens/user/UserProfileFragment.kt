@@ -91,7 +91,7 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
 
                     this?.commit()
                     v?.findNavController()
-                        ?.navigate(R.id.action_userProfileFragment_to_mainActivity)
+                        ?.navigate(R.id.action_userProfileFragment_to_secondActivity)
                 }
 
             }

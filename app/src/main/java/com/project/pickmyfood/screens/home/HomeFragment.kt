@@ -87,11 +87,12 @@ class HomeFragment : Fragment(),View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             tukarPoinButton -> {
-                with(sharedPreferences?.edit()){
-                    this?.remove(getString(R.string.user_firstName))
-                    this?.commit()
-                    v?.findNavController()?.navigate(R.id.action_userProfileFragment_to_mainActivity)
-                }
+//                with(sharedPreferences?.edit()){
+//                    this?.remove(getString(R.string.user_firstName))
+//                    this?.commit()
+//                    v?.findNavController()?.navigate(R.id.action_userProfileFragment_to_secondActivity)
+//                }
+                v?.findNavController()?.navigate(R.id.action_global_to_orderListFragment)
 
             }
         }

@@ -35,6 +35,7 @@ class ProductRecycledApter(
         val productID = productList[position].productID
         val nameProduct = productList[position].productName
         val priceProduct = productList[position].productPrice.price
+        val productStock = productList[position].productStock
         Picasso.get().load(productImage).into(holder.imageFood)
 
         holder.productName.text = productList[position].productName
@@ -49,6 +50,7 @@ class ProductRecycledApter(
                     "nameProduct" to nameProduct,
                     "priceProduct" to priceProduct,
                     "productImage" to productImage,
+                    "productStock" to productStock,
                     "storeID" to storeID
                 )
                 )

@@ -119,7 +119,7 @@ class CartFragment : Fragment(),View.OnClickListener {
         when(v){
 
             checkoutText -> {
-                var subtotal: Int = 0
+                var subtotal = 0
                 for (i in cartViewModel.cartList.indices) {
                     println("cartlist : ${cartViewModel.cartList[i].price}")
                     subtotal += (cartViewModel.cartList[i].price.toInt())
@@ -132,8 +132,7 @@ class CartFragment : Fragment(),View.OnClickListener {
                     soldItems = cartViewModel.cartList
                 )
                 println(storeID.toString())
-                println(cartViewModel.cartList[0].qty)
-                if (cartViewModel.cartList.isEmpty()) {
+                if (subtotal == 0) {
                     Toast.makeText(
                         this.context, "Cart Not be null", Toast.LENGTH_SHORT
                     ).show()
