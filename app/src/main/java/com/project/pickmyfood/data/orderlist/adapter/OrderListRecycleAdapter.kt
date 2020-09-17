@@ -38,7 +38,7 @@ class OrderListRecycleAdapter(
         holder.transactionIDOrder.text = transactionIDnya
 //        holder.orderID.text = orderLists[position].orderID
         holder.userFirstName.text = orderLists[position].userFirstName
-        holder.amountOrder.text = orderLists[position].amount
+        holder.amountOrder.text = "Rp.${orderLists[position].amount}"
         holder.transactionCreated.text = orderLists[position].transactionCreated
         holder.transactionStatus.text = orderLists[position].transactionStatus
         holder.button_pick.setOnClickListener {
