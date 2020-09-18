@@ -62,7 +62,6 @@
             android:id="@+id/profile_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/ellipse_9"
             app:civ_border_color="#FFFFFF"
             app:civ_border_width="2dp" />
 
@@ -72,7 +71,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="Nama User"
+            android:text="Username"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -88,11 +87,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/btn_editProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/vector_1_" />
+            app:srcCompat="@drawable/editprofil" />
 
     </LinearLayout>
 
@@ -160,7 +160,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="ini@gmail.com "
+                            android:text=""
                             android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
@@ -215,7 +215,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="ini no tlp"
+                            android:text=""
                             android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
@@ -270,7 +270,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="ini adress"
+                            android:text=""
                             android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
@@ -325,23 +325,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="ini point"
+                            android:text=""
                             android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="70dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/design_default_color_error"
-                android:text="Edit Profil"
-                android:textColor="#FFFFFF"
-                android:textSize="16dp" />
         </LinearLayout>
     </ScrollView>
     <!--    <LinearLayout-->

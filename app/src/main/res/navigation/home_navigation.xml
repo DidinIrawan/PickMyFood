@@ -5,6 +5,9 @@
     android:id="@+id/home_navigation"
     app:startDestination="@id/homeFragment">
     <action
+        android:id="@+id/action_userProfileFragment_to_editUserProfile"
+        app:destination="@id/editUserProfile" />
+    <action
         android:id="@+id/action_global_to_loginFragment"
         app:destination="@+id/loginFragment" />
     <action
@@ -84,6 +87,7 @@
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" >
 
+
     </fragment>
     <fragment
         android:id="@+id/foodMenuListFragment"
@@ -133,4 +137,9 @@
         android:name="com.project.pickmyfood.screens.orderlist.OrderListFragment"
         android:label="fragment_order_list"
         tools:layout="@layout/fragment_order_list" />
+    <fragment
+        android:id="@+id/editUserProfile"
+        android:name="com.project.pickmyfood.screens.user.EditUserProfile"
+        android:label="fragment_edit_user_profile"
+        tools:layout="@layout/fragment_edit_user_profile" />
 </navigation>

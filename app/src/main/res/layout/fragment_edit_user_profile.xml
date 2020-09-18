@@ -58,7 +58,7 @@
         android:inputType="textPersonName"
         android:hint="LastName" />
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputLastAdress"
+        android:id="@+id/inputAdress"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
@@ -68,7 +68,7 @@
         android:inputType="textPersonName"
         android:hint="Adress" />
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputLastNoTlp"
+        android:id="@+id/inputNoTlp"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
@@ -88,10 +88,10 @@
         android:inputType="textPersonName"
         android:hint="Email." />
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image1"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/rectangle_8imghome"
+
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="2dp"
         android:layout_marginTop="30dp"
