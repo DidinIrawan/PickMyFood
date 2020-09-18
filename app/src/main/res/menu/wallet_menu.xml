@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_baseline_account_balance_24"
         android:visible="true" />
     <item
-        android:id="@+id/MenuWalletHistory"
+        android:id="@+id/menuWalletHistory"
         android:checkable="false"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_restore_24"

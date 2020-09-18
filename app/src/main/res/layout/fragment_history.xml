@@ -5,9 +5,21 @@
     android:id="@+id/frameLayout9"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foreground="@drawable/background_wallet"
     tools:context=".screens.wallet.HistoryFragment">
 
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:foreground="@drawable/background_wallet"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="0dp"
@@ -20,7 +32,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/menuRestoList"
+            android:id="@+id/historyListRecycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="80dp" />

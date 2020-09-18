@@ -56,12 +56,12 @@ class WalletActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottom_navigation_wallet, navController)
         bottom_navigation_wallet.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.homeMenu -> {
-                    navController.navigate(R.id.action_topUpFragment_to_historyFragment)
+                R.id.menuWalletTopUp -> {
+                    navController.navigate(R.id.action_historyFragment_to_topUpFragment)
                     true
                 }
-                R.id.restoMenu -> {
-                    navController.navigate(R.id.action_historyFragment_to_topUpFragment)
+                R.id.menuWalletHistory -> {
+                    navController.navigate(R.id.action_topUpFragment_to_historyFragment)
                     true
                 }
                 else -> {

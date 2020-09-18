@@ -14,6 +14,7 @@ import com.project.pickmyfood.screens.qrcode.QRcode
 import com.project.pickmyfood.screens.rating.RatingFragment
 import com.project.pickmyfood.screens.signup.SignUpFragment
 import com.project.pickmyfood.screens.user.UserProfileFragment
+import com.project.pickmyfood.screens.wallet.HistoryFragment
 import com.project.pickmyfood.screens.wallet.TopUpFragment
 import dagger.Component
 
@@ -37,4 +38,5 @@ interface ApplicationComponent {
 
     //    fun inject(restoProfileFragment: RestoProfileFragment)
     fun inject(orderListFragment: OrderListFragment)
+    fun inject(historyFragment: HistoryFragment)
 }

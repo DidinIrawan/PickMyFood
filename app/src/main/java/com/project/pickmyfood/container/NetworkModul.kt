@@ -2,6 +2,7 @@ package com.project.pickmyfood.container
 
 import com.project.pickmyfood.config.RetrofitBuilder
 import com.project.pickmyfood.data.checkout.CheckOutApi
+import com.project.pickmyfood.data.history.HistoryTransactionAPI
 import com.project.pickmyfood.data.order.OrderAPI
 import com.project.pickmyfood.data.orderlist.OrderListAPI
 import com.project.pickmyfood.data.payment.PaymentAPI
@@ -72,6 +73,11 @@ class NetworkModul {
     @Provides
     fun providesOrderListAPI(): OrderListAPI {
         return RetrofitBuilder.createRetrofit().create(OrderListAPI::class.java)
+    }
+
+    @Provides
+    fun providesHistoryTransactionAPI(): HistoryTransactionAPI {
+        return RetrofitBuilder.createRetrofit().create(HistoryTransactionAPI::class.java)
     }
 
 }
