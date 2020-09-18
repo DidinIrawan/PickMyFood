@@ -44,7 +44,7 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_Logout.setOnClickListener(this)
-
+        btn_editProfil.setOnClickListener(this)
         val userID = sharedPreferences?.getString(
             getString(R.string.id_key),
             getString(R.string.default_value)
@@ -66,22 +66,15 @@ class UserProfileFragment : Fragment(), View.OnClickListener {
         when (v) {
             btn_Logout -> {
                 with(sharedPreferences?.edit()) {
-//                    this?.remove(getString(R.string.user_firstName))
-//                    this?.remove(getString(R.string.user_lastName))
-//                    this?.remove(getString(R.string.user_phone))
-//                    this?.remove(getString(R.string.user_email))
-//                    this?.remove(getString(R.string.user_poin))
-//                    this?.remove(getString(R.string.id_key))
-//                    this?.remove(getString(R.string.user_address))
-//                    this?.remove(getString(R.string.user_image))
-
                     this?.clear() // for all
-
                     this?.commit()
                     v?.findNavController()
                         ?.navigate(R.id.action_userProfileFragment_to_secondActivity)
                 }
-
+            }
+            btn_editProfil ->{
+                v?.findNavController()
+                    ?.navigate(R.id.action_userProfileFragment_to_editUserProfile)
             }
         }
 
