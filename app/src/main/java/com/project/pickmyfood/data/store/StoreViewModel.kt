@@ -5,11 +5,12 @@ import javax.inject.Inject
 
 class StoreViewModel @Inject constructor(var storeRepository: StoreRepository) {
     val store: MutableLiveData<List<KeyStore>>? = storeRepository.storeList
-    fun getAllStore() {
+    fun getAllStore(keyword: String) {
         println("masuk view model")
-        storeRepository.getAllStore()
+        storeRepository.getAllStore(keyword)
     }
-    fun getStore(id: String){
+
+    fun getStore(id: String) {
         storeRepository.getStore(id)
     }
 }

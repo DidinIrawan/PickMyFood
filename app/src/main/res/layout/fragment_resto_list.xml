@@ -27,18 +27,28 @@
             android:layout_height="match_parent"
             android:textColorHint="#777676">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/searchResto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/search_shape"
+                android:hint="Cari Resto" />
+            <!--            <com.google.android.material.textfield.TextInputEditText-->
+            <!--                android:id="@+id/searchResto"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@drawable/search_shape"-->
+            <!--                android:gravity="left"-->
+            <!--                android:hint="@string/search"-->
+            <!--                android:textColor="#919191"-->
+            <!--                android:textColorHint="#716E6E"-->
+            <!--                android:textSize="20sp"-->
+            <!--                android:textStyle="italic" />-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/searchButton"
+                android:layout_width="wrap_content"
                 android:drawableLeft="@drawable/vector"
-                android:gravity="left"
-                android:hint="@string/search"
-                android:textColor="#919191"
-                android:textColorHint="#716E6E"
-                android:textSize="20sp"
-                android:textStyle="italic" />
+                android:layout_height="wrap_content"
+                android:text="cari" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 

@@ -9,18 +9,17 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.project.pickmyfood.R
 import com.project.pickmyfood.container.MyApplication
-import com.project.pickmyfood.data.store.KeyStore
 import com.project.pickmyfood.data.store.StoreViewModel
 import com.project.pickmyfood.data.store.adapter.StoreRecycleAdapter
 import kotlinx.android.synthetic.main.fragment_resto_list.*
-import kotlinx.android.synthetic.main.resto_list_recycle_view.*
 import javax.inject.Inject
 
 
-class RestoListFragment : Fragment(){
+class RestoListFragment : Fragment(), View.OnClickListener {
     @Inject
     lateinit var storeViewModel: StoreViewModel
     lateinit var adapter: StoreRecycleAdapter
+    var searchRestoText = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
@@ -42,19 +41,25 @@ class RestoListFragment : Fragment(){
             adapter = StoreRecycleAdapter(it, activity)
             storeRecycleView.adapter = adapter
         })
-        storeViewModel.getAllStore()
 
+
+        storeViewModel.getAllStore(searchRestoText)
+
+        searchButton.setOnClickListener(this)
 //        println("GetALl ${adapter.toString()}")
 //        restoListCard.setOnClickListener(this)
     }
 
-//    override fun onClick(p0: View?) {
-//        when(p0){
-//            restoListCard -> {
-////                storeViewModel.getStore()
-//            }
-//        }
-//    }
+    override fun onClick(p0: View?) {
+        searchRestoText = searchResto.text.toString()
+
+        when (p0) {
+            searchButton -> {
+                println("search OnClick $searchRestoText")
+                storeViewModel.getAllStore(searchRestoText)
+            }
+        }
+    }
 
 
 }

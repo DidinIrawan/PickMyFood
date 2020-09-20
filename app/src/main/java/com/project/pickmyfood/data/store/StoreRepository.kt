@@ -24,15 +24,18 @@ class StoreRepository @Inject constructor(val storeAPI: StoreAPI) {
                 val response = response.body()
                 val gson = Gson()
                 val stringResponse = gson.toJson(response)
-                val storeObject = gson.fromJson<KeyStore>(stringResponse,
-                    KeyStore::class.java)
+                val storeObject = gson.fromJson<KeyStore>(
+                    stringResponse,
+                    KeyStore::class.java
+                )
                 store.value = storeObject
             }
 
         })
     }
-    fun getAllStore() {
-        storeAPI.getAllStore().enqueue(object : Callback<Wrapper> {
+
+    fun getAllStore(keyword: String) {
+        storeAPI.getAllStore(keyword).enqueue(object : Callback<Wrapper> {
             override fun onResponse(
                 call: Call<Wrapper>,
                 response: Response<Wrapper>
@@ -43,6 +46,7 @@ class StoreRepository @Inject constructor(val storeAPI: StoreAPI) {
                 val gson = Gson()
                 val outputRestoList: List<KeyStore> = gson.fromJson(gson.toJson(res), listOfStore)
                 storeList.value = outputRestoList
+                println("response $res")
             }
 
             override fun onFailure(call: Call<Wrapper>, t: Throwable) {
