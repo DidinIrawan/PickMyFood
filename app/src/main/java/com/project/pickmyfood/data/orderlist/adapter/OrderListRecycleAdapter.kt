@@ -35,7 +35,7 @@ class OrderListRecycleAdapter(
         val transactionCreated = orderLists[position].transactionCreated
         val transactionStatus = orderLists[position].transactionStatus
         println("TransactionID $transactionIDnya")
-        holder.transactionIDOrder.text = transactionIDnya
+        holder.storeNameText.text = orderLists[position].storeName
 //        holder.orderID.text = orderLists[position].orderID
         holder.userFirstName.text = orderLists[position].userFirstName
         holder.amountOrder.text = "Rp.${orderLists[position].amount}"
@@ -56,7 +56,7 @@ class OrderListRecycleAdapter(
 }
 
 class OrderListViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    val transactionIDOrder = v.findViewById<TextView>(R.id.transactionIDText)
+    val storeNameText = v.findViewById<TextView>(R.id.storeNameText)
 
     //    val orderID = v.findViewById<TextView>(R.id.orderIDText)
     val userFirstName = v.findViewById<TextView>(R.id.userFirstNameText)

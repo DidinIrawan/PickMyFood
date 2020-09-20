@@ -72,7 +72,7 @@ class RestoProfileFragment : Fragment(), View.OnClickListener {
                 )
             }
             cartIcon -> {
-                v?.findNavController()?.navigate(R.id.action_detailFoodFragment2_to_cartFragment2)
+                v?.findNavController()?.navigate(R.id.action_detailFoodFragment_to_cartFragment)
             }
         }
     }

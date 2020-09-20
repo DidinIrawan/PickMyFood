@@ -70,8 +70,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:textColorHint="#000000"
-                        app:hintTextColor="#000000"
+                        android:textColorHint="#FF5722"
+                        app:hintTextColor="#FF5722"
                         android:layout_margin="8dp"
                         android:focusedByDefault="false">
 
@@ -84,31 +84,35 @@
                             android:foregroundTint="#FF5722"
 
                             android:hint="@string/login_usr"
-                            android:textColor="#000000"
-                            android:textColorHint="#020202" />
+                            android:textColor="#FF5722"
+                            android:textColorHint="#FF5722"
+                            android:textColorLink="#FF5722" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:textColorHint="#000000"
+                        android:textColorHint="#FF5722"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:hintTextColor="#000000"
+                        app:hintTextColor="#FF5722"
                         android:layout_margin="8dp"
-                        app:passwordToggleEnabled="true"
-                        android:focusedByDefault="false">
+                        app:passwordToggleEnabled="true">
+
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/userPasswordInput"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@android:color/transparent"
+                            android:drawableStart="@drawable/ic_baseline_https_24"
                             android:drawableLeft="@drawable/ic_baseline_https_24"
-                            android:inputType="textPassword"
                             android:hint="@string/login_pwd"
-                            android:textColor="#000000"
-                            android:textColorHint="#020202" />
+                            android:inputType="textPassword"
+                            android:textColor="#FF5722"
+                            android:textColorHighlight="#FF5722"
+                            android:textColorHint="#FF5722"
+                            android:textColorLink="#FF5722" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.button.MaterialButton

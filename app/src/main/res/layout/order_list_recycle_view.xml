@@ -36,12 +36,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/transactionIDText"
+                        android:id="@+id/storeNameText"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:text="Transaction ID"
+                        android:text="Store Name"
                         android:textColor="#FFFFFF"
                         android:textSize="15dp" />
 

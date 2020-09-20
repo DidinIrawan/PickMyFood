@@ -16,6 +16,7 @@ class OrderList(
     var orderID: String = "",
     var userID: String = "",
     var userFirstName: String = "",
+    var storeName: String = "",
     var amount: String = "",
     var transactionCreated: String = "",
     var transactionStatus: String = ""
