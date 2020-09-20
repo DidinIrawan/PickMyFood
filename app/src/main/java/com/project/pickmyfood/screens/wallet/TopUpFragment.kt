@@ -55,10 +55,13 @@ class TopUpFragment : Fragment(), View.OnClickListener {
         println("USER ID $userID")
         when (v) {
             topUpButton -> {
-                val topUpWallet = TopUpWallet(topUpAmount = topUpInputText.text.toString())
 
+                val topUpWallet = TopUpWallet(topUpAmount = topUpInputText.text.toString())
+                val topupInput = topUpInputText.text.toString()
                 if (topUpInputText.text.toString() == "") {
                     Toast.makeText(this.context, "Must be Field", LENGTH_SHORT).show()
+                } else if (topupInput.toInt() < 0) {
+                    Toast.makeText(this.context, "Top Up can't be minus", LENGTH_SHORT).show()
                 } else {
                     walletViewModel.topUpWallet(topUpWallet, userID.toString())
                     Toast.makeText(
